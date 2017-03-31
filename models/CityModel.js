@@ -12,6 +12,4 @@ var mongoose = require('mongoose'),
       isAffordable: Number
     });
 
-    var City = mongoose.model('City', CitySchema);
-
-    module.exports = City;
+    module.exports = mongoose.model('City', CitySchema);
