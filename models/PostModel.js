@@ -2,6 +2,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Post = require('./comment');
+
 var PostSchema = new Schema({
   author: [ User.name ],
   title: String,
