@@ -6,9 +6,9 @@ var Comment = require('./CommentModel');
 var User = require('./UserModel');
 
 var PostSchema = new Schema({
-  author: [ User.name ],
+  _author: [ UserSchema.username ],
   title: String,
-  city: [ City.name ],
+  city: [ CitySchema.name ],
   text: String
 });
 
