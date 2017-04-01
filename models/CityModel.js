@@ -1,15 +1,11 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    Post = require('./PostModel');
-    // Comment = require('./CommentModel');
-
+    Schema = mongoose.Schema;
 
     var CitySchema = new Schema({
       name: String,
       imageUrl: String,
-      posts: [Post.Schema],
       numOfPosts: Number,
-      isAffordable: Number
+      isAffordable: Boolean
     });
 
     module.exports = mongoose.model('City', CitySchema);
