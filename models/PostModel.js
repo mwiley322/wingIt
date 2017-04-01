@@ -11,6 +11,5 @@ var PostSchema = new Schema({
   city: [ CitySchema.name ],
   text: String
 });
-
 // var Post = mongoose.model('Post', PostSchema);
 module.exports = mongoose.model('Post', PostSchema);
