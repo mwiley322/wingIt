@@ -21,6 +21,7 @@ var port = process.env.API_PORT || 3001;
 //ADD YOUR INFO HERE!
 // To connect using a driver via the standard MongoDB URI (what's this?):
 // mongoose.connect('mongodb://ali554:123456@ds161159.mlab.com:61159/mern-crud');
+var controllers = require('./controllers');
 
 
 //config API to use bodyParser and look for JSON in req.body
@@ -45,8 +46,37 @@ router.get('/', function(req,res) {
 });
 
 
+/*
+ * JSON API Endpoints
+ */
+ router.route('/city')
+
+  .get(function(req,res) {
+    City.find(function(err, cities){
+      if(err){ res.send(err)}
+      res.json(city);
+});
+})
+.post(function(req, res) {
+    var comment = new City();
+    city.name = req.body.name;
+    // comment.text = req.body.text;
+
+    city.save(function(err) {
+      if(err){res.send(err)}
+      res.json({ message: 'city successfully added!'});
+    });
+  });
 
 
+
+app.get('/api', controllers.api.index);
+
+app.get('/api/cities', controllers.cities.index);
+app.get('/api/cities/:id', controllers.cities.show);
+app.post('/api/cities', controllers.cities.create);
+app.delete('/api/cities/:id', controllers.cities.destroy);
+app.put('/api/cities/:id', controllers.cities.update);
 
 // //use router config when we call /API
 // app.use('/api', router);
