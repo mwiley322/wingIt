@@ -7,6 +7,5 @@ var City = require('./CityModel'),
     Comment = require('./CommentModel');
 
     module.exports.City = City;
-    module.expoerts.User = User;
+    module.exports.User = User;
     module.exports.Post = Post;
-    module.expoerts.Comment = Comment;

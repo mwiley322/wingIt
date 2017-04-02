@@ -6,9 +6,9 @@ var Schema = mongoose.Schema;
 var User = require('./UserModel');
 
 var PostSchema = new Schema({
-  _author: String,
+  author: String,
   title: String,
-  _city: String,
+  city: String,
   content: String
 });
 
