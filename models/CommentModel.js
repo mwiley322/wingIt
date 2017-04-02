@@ -6,9 +6,9 @@
 // var Post = require('./PostModel');
 //
 // var CommentSchema = new Schema({
-//   author: [ User.username ],
+//   author: [ User.schema.username ],
 //   text: String,
-//   _post: [ Post.schema ]
+//   post: [ Post.schema ]
 // });
 //
 // module.exports = mongoose.model('Comment', CommentSchema);

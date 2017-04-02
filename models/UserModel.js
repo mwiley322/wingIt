@@ -16,10 +16,7 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  profile: {
-    firstName: { type: String },
-    lastName: { type: String }
-  },
+  profile: String,
 //   resetPasswordToken: { type: String },
 //   resetPasswordExpires: { type: Date }
 // },
@@ -29,8 +26,11 @@ var UserSchema = new Schema({
   },
   currentCity: String,
   aboutMe: String,
-  posts: [ Post.schema ]
-  // comments: [ Comment.schema ]
+  posts:
+    {
+      type:[Schema.Types.ObjectId],
+      ref:'Post'
+    }
 });
 
 

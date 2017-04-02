@@ -19,15 +19,16 @@ var cities =[
   isAffordable: true
   }
 ];
+
 var users = [
   {
     username: 'jimbro',
     password: '123',
-    profile: 'Jim Kelley',
+    profile: 'Jim howard',
     image:'image',
     currentCity:'San Francisco',
     aboutMe:'awesome',
-    posts:['beer','footbal']
+    posts:['beer','football']
   },
   {
     username: 'kelleyChick',
@@ -47,7 +48,8 @@ var users = [
     aboutMe:'crazy cool',
     posts:'dance'
   }
-];
+];  
+
 var posts = [
   {
     author: 'chavez',
@@ -80,11 +82,54 @@ var posts = [
     content:'Raider nation yeehaw'
   }
 ];
+
 db.City.remove({}, function(err, removedCities){
   db.City.create(cities, function(err, seededCities){
     if (err) { return console.log('ERROR', err); }
     console.log("all cities:", seededCities);
     console.log("created", cities.length, "cities");
-    process.exit();
+  });
+});
+
+db.Post.remove({}, function(err, removedPosts){
+  console.log("removed posts, ", removedPosts);
+  db.Post.create(posts, function(err, seededPosts){
+    if(err) {
+      return console.log("error creating cities", err);
+    }
+    console.log('created posts- ', seededPosts);
+
+    db.User.remove({}, function(err, removedUsers){
+      console.log("removed users");
+      users.forEach(function(user){
+        var newUser = new db.User({
+          username: user.username,
+          password: user.password,
+          profile: user.profile,
+          imageUrl:user.imageUrl,
+          currentCity: user.currentCity,
+          aboutMe: user.aboutMe,
+        });
+        console.log("finding the posts", user.posts);
+        db.Post.find({title: user.posts}, function(err,foundPosts){
+          if(err){
+            return console.log("error finding posts", err);
+          }
+          console.log("these are the found posts!!!!!!",foundPosts);
+          var postArr = [];
+          var postList = foundPosts.map(function(post){
+            postArr.push(post);
+          })
+           newUser.posts = postArr;
+          console.log(newUser.username, 's posts are set to ', newUser.posts);
+          newUser.save(function(err,savedUser){
+            if(err){
+              return console.log("error saving", err);
+            }
+            console.log('saved user',savedUser);
+          });
+        });
+      });
+    });
   });
 });
