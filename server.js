@@ -59,9 +59,10 @@ app.get('/api/cities', controllers.cities.index);
 app.get('/api/cities/:cityId', controllers.cities.show);
 app.get('/api/cities/:cityId/posts', controllers.cities.showPosts);
 
-
-app.get('/api/users/posts', controllers.posts.index);
+//POST CONTROLLERS
+app.get('/api/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
+app.put('/api/posts/:postId', controllers.posts.update);
 app.get('/api/users/:userId/posts/', controllers.posts.indexProfile);
 app.post('/api/user/:userId/city/:cityId/posts', controllers.posts.post);
 app.delete('/api/posts/:postId', controllers.posts.destroy);
