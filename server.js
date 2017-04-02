@@ -4,11 +4,7 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    CityModel = require('./models/CityModel'),
-    PostModel = require('./models/PostModel'),
-    UserModel = require('./models/UserModel'),
-    CommentModel = require('./models/CommentModel');
-
+    controllers = require('./controllers');
 
 //create instances
 var app = express(),
@@ -16,13 +12,6 @@ var app = express(),
 
 // set port to env or 3000
 var port = process.env.API_PORT || 3001;
-
-//db config
-//ADD YOUR INFO HERE!
-// To connect using a driver via the standard MongoDB URI (what's this?):
-// mongoose.connect('mongodb://ali554:123456@ds161159.mlab.com:61159/mern-crud');
-var controllers = require('./controllers');
-
 
 //config API to use bodyParser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true }));
@@ -34,22 +23,22 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-
   //Remove caching
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
 
+//use router config when we call /API
+app.use('/api', router);
+
 // set route path and init API
-// router.get('/', function(req,res) {
-//   res.json({message: 'API Initialized!'});
-// });
-//
-//
-// /*
-//  * JSON API Endpoints
-//  */
-//  router.route('/city')
+router.get('/', function(req,res) {
+  res.json({message: 'YAY THE API WORKS!'});
+});
+
+//////////////////////
+//JSON API Endpoints//
+/////////////////////
 
 //API CONTROLLER
 app.get('/api', controllers.api.index);
@@ -73,10 +62,6 @@ app.get('/api/users/:userId', controllers.users.show);
 app.post('/api/users', controllers.users.create);
 app.put('/api/users/:userId', controllers.users.update);
 app.delete('/api/users/:userId', controllers.users.destroy);
-
-
-// //use router config when we call /API
-// app.use('/api', router);
 
 //start server
 app.listen(port, function() {
