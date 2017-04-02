@@ -20,5 +20,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "Wingit is a MERN stack application that lets users share their travel experiences with one another!",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwiley322/wingIt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwiley322/wingIt/issues"
+  },
+  "homepage": "https://github.com/mwiley322/wingIt#readme"
 }

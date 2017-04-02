@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import mainPhoto from './mainPhoto.jpg'; // relative path to image
+import MainP from './MainP.jpg'; // relative path to image
 import Nav from './Nav.js';
 import Search from './Search.js';
-import style from './index.css';
+import './index.css';
 
 class Main extends Component {
     render() {
@@ -10,8 +10,7 @@ class Main extends Component {
         <div className="mainPage">
           <Nav/>
           <Search/>
-            <img src={mainPhoto} width="1365px" height="600px" alt={"main"} className="photo1"/>
-
+            <img src={MainP} width="1365px" height="600px" alt={"main"} className="photo1"/>
             </div>
         )
     }
