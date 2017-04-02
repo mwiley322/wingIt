@@ -38,6 +38,9 @@ function index(req, res) {
         method: 'GET', path: '/api/posts/:postId', description: 'Gets a single post written by a single user'
       },
       {
+        method: 'POST', path: '/api/user/:userId/city/:cityId/posts', description: 'Creates new post written by a single user'
+      },
+      {
         method: 'PUT', path: '/api/posts/:postId', description: 'Updates a single existing post written by a single user'
       },
       {
