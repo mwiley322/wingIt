@@ -29,10 +29,12 @@ function indexProfile(req,res){
     if(err){
       console.log("error",err);
     }
+    console.log("found user", foundUser);
   db.Post.find({author:foundUser.username}, function(err,foundPosts){
     if(err){
       console.log("err", err);
     }
+    console.log("found post", foundPosts);
     res.json(foundPosts)
     })
   });
@@ -66,6 +68,26 @@ function post(req,res){
   })
 }
 
+//PUT '/api/posts/:postId'
+function update(req,res){
+  var id = req.params.postId;
+  db.Post.findById(id, function(err,foundPost){
+    if(err){
+      console.log("error finding post",err);
+    }
+    foundPost.title = req.body.title;
+    foundPost.content = req.body.content;
+    foundPost.city = req.body.city;
+    foundPost.author = foundPost.author;
+    foundPost.save(function(err,savedPost){
+      if(err){
+        console.log("error saving", err);
+      }
+      res.json(savedPost);
+    });
+  });
+}
+
 //DELETE /api/posts/:postId
 function destroy(req,res){
   var id = req.params.postId;
@@ -84,5 +106,6 @@ module.exports = {
   show:show,
   indexProfile:indexProfile,
   post:post,
+  update:update,
   destroy:destroy
 };
