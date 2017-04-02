@@ -50,37 +50,29 @@ app.use(function(req, res, next) {
 //  * JSON API Endpoints
 //  */
 //  router.route('/city')
-//
-//   .get(function(req,res) {
-//     City.find(function(err, cities){
-//       if(err){ res.send(err)}
-//       res.json(city);
-// });
-// })
-// .post(function(req, res) {
-//     var comment = new City();
-//     city.name = req.body.name;
-//     // comment.text = req.body.text;
-//
-//     city.save(function(err) {
-//       if(err){res.send(err)}
-//       res.json({ message: 'city successfully added!'});
-//     });
-//   });
-//
-//
 
+//API CONTROLLER
 app.get('/api', controllers.api.index);
 
+//CITY CONTROLLERS
 app.get('/api/cities', controllers.cities.index);
 app.get('/api/cities/:cityId', controllers.cities.show);
 app.get('/api/cities/:cityId/posts', controllers.cities.showPosts);
+
 
 app.get('/api/users/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
 app.get('/api/users/:userId/posts/', controllers.posts.indexProfile);
 app.post('/api/user/:userId/city/:cityId/posts', controllers.posts.post);
 app.delete('/api/posts/:postId', controllers.posts.destroy);
+
+//USER CONTROLLERS
+app.get('/api/users', controllers.users.index);
+app.get('/api/users/:userId', controllers.users.show);
+app.post('/api/users', controllers.users.create);
+app.put('/api/users/:userId', controllers.users.update);
+app.delete('/api/users/:userId', controllers.users.destroy);
+
 
 // //use router config when we call /API
 // app.use('/api', router);
