@@ -41,34 +41,34 @@ app.use(function(req, res, next) {
 });
 
 // set route path and init API
-router.get('/', function(req,res) {
-  res.json({message: 'API Initialized!'});
-});
-
-
-/*
- * JSON API Endpoints
- */
- router.route('/city')
-
-  .get(function(req,res) {
-    City.find(function(err, cities){
-      if(err){ res.send(err)}
-      res.json(city);
-});
-})
-.post(function(req, res) {
-    var comment = new City();
-    city.name = req.body.name;
-    // comment.text = req.body.text;
-
-    city.save(function(err) {
-      if(err){res.send(err)}
-      res.json({ message: 'city successfully added!'});
-    });
-  });
-
-
+// router.get('/', function(req,res) {
+//   res.json({message: 'API Initialized!'});
+// });
+//
+//
+// /*
+//  * JSON API Endpoints
+//  */
+//  router.route('/city')
+//
+//   .get(function(req,res) {
+//     City.find(function(err, cities){
+//       if(err){ res.send(err)}
+//       res.json(city);
+// });
+// })
+// .post(function(req, res) {
+//     var comment = new City();
+//     city.name = req.body.name;
+//     // comment.text = req.body.text;
+//
+//     city.save(function(err) {
+//       if(err){res.send(err)}
+//       res.json({ message: 'city successfully added!'});
+//     });
+//   });
+//
+//
 
 app.get('/api', controllers.api.index);
 
