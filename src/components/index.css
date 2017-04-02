@@ -1,0 +1,26 @@
+body {
+
+  padding: 0;
+  font-family: sans-serif;
+}
+.col-xs-offset-2 {
+    text-align:center;
+    top:48vh;
+  }
+.navbar-default {
+  text-align:center;
+  margin:0;
+}
+.row2{
+  margin: 0;
+
+}
+.container1{
+  margin: 0;
+}
+.MainP{
+  top:10px;
+}
+.container-fluid{
+  margin: 0;
+}

@@ -1,5 +1,4 @@
 var db = require("./models");
-
 var cities =[
   {
   name: 'San Francisco',
@@ -20,7 +19,6 @@ var cities =[
   isAffordable: true
   }
 ];
-
 
 var users = [
   {
@@ -50,7 +48,7 @@ var users = [
     aboutMe:'crazy cool',
     posts:'dance'
   }
-];
+];  
 
 var posts = [
   {
