@@ -26,7 +26,7 @@ function index(req, res) {
         method: 'GET', path: '/api/cities', description: 'Gets all cities within the database'
       },
       {
-        method: 'GET', path: '/api/cities/:id', description: 'Gets a single city based on parameters'
+        method: 'GET', path: '/api/cities/:cityId', description: 'Gets a single city based on parameters'
       },
       {
         method: 'GET', path: '/api/users/posts', description: 'Gets all posts from the database to search for city posts'
@@ -35,13 +35,13 @@ function index(req, res) {
         method: 'GET', path: '/api/users/:userId/posts/', description: 'Gets all posts written by a single user'
       },
       {
-        method: 'GET', path: '/api/users/:userId/posts/:postId', description: 'Gets a single post written by a single user'
+        method: 'GET', path: '/api/posts/:postId', description: 'Gets a single post written by a single user'
       },
       {
-        method: 'PUT', path: '/api/users/:userId/posts/:postId', description: 'Updates a single existing post written by a single user'
+        method: 'PUT', path: '/api/posts/:postId', description: 'Updates a single existing post written by a single user'
       },
       {
-        method: 'DELETE', path: '/api/users/:userId/posts/:postId', description: 'Destroys a single post written by a user'
+        method: 'DELETE', path: '/api/posts/:postId', description: 'Destroys a single post written by a user'
       }
       // {
       //   method: 'GET', path: '/api/users/posts/comments', description: 'Gets all comments within the database'

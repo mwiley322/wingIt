@@ -73,10 +73,8 @@ app.use(function(req, res, next) {
 app.get('/api', controllers.api.index);
 
 app.get('/api/cities', controllers.cities.index);
-app.get('/api/cities/:id', controllers.cities.show);
-app.post('/api/cities', controllers.cities.create);
-app.delete('/api/cities/:id', controllers.cities.destroy);
-app.put('/api/cities/:id', controllers.cities.update);
+app.get('/api/cities/:cityId', controllers.cities.show);
+
 
 // //use router config when we call /API
 // app.use('/api', router);
