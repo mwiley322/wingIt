@@ -29,13 +29,19 @@ function index(req, res) {
         method: 'GET', path: '/api/cities/:cityId', description: 'Gets a single city based on parameters'
       },
       {
-        method: 'GET', path: '/api/users/posts', description: 'Gets all posts from the database to search for city posts'
+        method: 'GET', path: '/api/cities/:cityId/posts', description: 'Gets all post for that city'
+      },
+      {
+        method: 'GET', path: '/api/posts', description: 'Gets all posts from the database'
       },
       {
         method: 'GET', path: '/api/users/:userId/posts/', description: 'Gets all posts written by a single user'
       },
       {
         method: 'GET', path: '/api/posts/:postId', description: 'Gets a single post written by a single user'
+      },
+      {
+        method: 'POST', path: '/api/user/:userId/city/:cityId/posts', description: 'Creates new post written by a single user with prefilled city and author'
       },
       {
         method: 'PUT', path: '/api/posts/:postId', description: 'Updates a single existing post written by a single user'

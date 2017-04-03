@@ -1,11 +1,15 @@
 body {
-  padding: 0;
-  font-family: sans-serif;
-  background-image: url(https://unsplash.com/collections/271352/food-drinks?photo=tOsKxvyNyDw);
+  background: url('/images/homeImg.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
 }
 .col-xs-offset-2 {
     text-align:center;
-    top:48vh;
+    top:40vh;
+
   }
 .navbar-default {
   text-align:center;
@@ -21,4 +25,13 @@ body {
 
 .container-fluid{
   margin: 0;
+}
+.homeTitle{
+  text-align: center;
+  font-size: 48px;
+  margin: 0;
+  position: absolute;
+  top:130px;
+  right:50px;
+  left: 50px;
 }
