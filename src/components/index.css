@@ -1,16 +1,15 @@
 body {
-  background: url('./MainP.jpg') no-repeat center fixed;
+  background: url('/images/homeImg.jpg') no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: white;
-  padding: 0;
-  font-family: sans-serif;
 }
 .col-xs-offset-2 {
     text-align:center;
-    top:48vh;
+    top:40vh;
+
   }
 .navbar-default {
   text-align:center;
@@ -23,9 +22,16 @@ body {
 .container1{
   margin: 0;
 }
-.MainP{
-  top:10px;
-}
+
 .container-fluid{
   margin: 0;
+}
+.homeTitle{
+  text-align: center;
+  font-size: 48px;
+  margin: 0;
+  position: absolute;
+  top:130px;
+  right:50px;
+  left: 50px;
 }

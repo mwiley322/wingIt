@@ -13,7 +13,14 @@ var app = express(),
 // set port to env or 3000
 var port = process.env.API_PORT || 3001;
 
-//config API to use bodyParser and look for JSON in req.body
+//db config
+//ADD YOUR INFO HERE!
+// To connect using a driver via the standard MongoDB URI (what's this?):
+// mongoose.connect('mongodb://ali554:123456@ds161159.mlab.com:61159/mern-crud');
+
+var controllers = require('./controllers');
+
+
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 
@@ -32,6 +39,40 @@ app.use(function(req, res, next) {
 app.use('/api', router);
 
 // set route path and init API
+
+router.get('/', function(req,res) {
+  res.json({message: 'API Initialized!'});
+});
+
+// router.get('/', function(req,res) {
+//   res.json({message: 'API Initialized!'});
+// });
+//
+//
+// /*
+//  * JSON API Endpoints
+//  */
+//  router.route('/city')
+//
+//   .get(function(req,res) {
+//     City.find(function(err, cities){
+//       if(err){ res.send(err)}
+//       res.json(city);
+// });
+// })
+// .post(function(req, res) {
+//     var comment = new City();
+//     city.name = req.body.name;
+//     // comment.text = req.body.text;
+//
+//     city.save(function(err) {
+//       if(err){res.send(err)}
+//       res.json({ message: 'city successfully added!'});
+//     });
+//   });
+//
+//
+
 router.get('/', function(req,res) {
   res.json({message: 'YAY THE API WORKS!'});
 });
@@ -39,6 +80,7 @@ router.get('/', function(req,res) {
 //////////////////////
 //JSON API Endpoints//
 /////////////////////
+
 
 //API CONTROLLER
 app.get('/api', controllers.api.index);
@@ -55,6 +97,7 @@ app.put('/api/posts/:postId', controllers.posts.update);
 app.get('/api/users/:userId/posts/', controllers.posts.indexProfile);
 app.post('/api/user/:userId/city/:cityId/posts', controllers.posts.post);
 app.delete('/api/posts/:postId', controllers.posts.destroy);
+
 
 //USER CONTROLLERS
 app.get('/api/users', controllers.users.index);

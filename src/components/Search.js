@@ -16,7 +16,7 @@ class Search extends Component {
                       <ul className="dropdown-menu" role="menu">
                         <li><a href="#contains">Contains</a></li>
                         <li><a href="#its_equal">Its equal</a></li>
-                        <li><a href="#greather_than">Greather than ></a></li>
+                        <li><a href="#greather_than">Greather than</a></li>
                         <li><a href="#less_than">Less than</a></li>
                         <li className="divider"></li>
                         <li><a href="#all">Anything</a></li>

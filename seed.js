@@ -48,7 +48,7 @@ var users = [
     aboutMe:'crazy cool',
     posts:'dance'
   }
-];  
+];
 
 var posts = [
   {
