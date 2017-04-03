@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     var CitySchema = new Schema({
       name: String,
       imageUrl: String,
-      numOfPosts: Number,
+      Population: Number,
       isAffordable: Boolean
     });
 
