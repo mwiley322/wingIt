@@ -22,7 +22,6 @@ function show(req,res){
 }
 
 //GET /api/users/:userdId/posts
-//NOT WORKING RIGHT NOW
 function indexProfile(req,res){
   var id = req.params.userId
   db.User.findById(id, function(err,foundUser){

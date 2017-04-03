@@ -26,7 +26,7 @@ function index(req, res) {
         method: 'GET', path: '/api/cities', description: 'Gets all cities within the database'
       },
       {
-        method: 'GET', path: '/api/cities/:cityId', description: 'Gets a single city based on parameters'
+        method: 'GET', path: '/api/cities/:cityName', description: 'Gets a single city based on parameters'
       },
       {
         method: 'GET', path: '/api/cities/:cityId/posts', description: 'Gets all post for that city'

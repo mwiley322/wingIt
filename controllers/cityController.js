@@ -10,10 +10,10 @@ function index(req,res) {
   })
 };
 
-//GET /api/cities/:cityId
+//GET /api/cities/:cityName
 function show(req,res) {
-  var id = req.params.cityId;
-  db.City.findById(id, function(err,foundCity){
+  var name = req.params.cityName;
+  db.City.find({name:{'$regex':name, '$options' : 'i'}}, function(err,foundCity){
     if(err){
       console.log("error finding city", err);
     }
