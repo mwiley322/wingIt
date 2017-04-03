@@ -11,6 +11,7 @@ class SignUpForm extends Component{
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
+
   }
   handleUsernameChange(e){
     this.setState({username: e.target.value})

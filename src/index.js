@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/Main.js';
-import App from './components/App';
+import Home from './components/Home.js';
 
 ReactDOM.render(
-  <div>
-    <App />
-    <Main/>
-  </div>,
+    <Home/>,
   document.getElementById('root')
 );

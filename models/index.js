@@ -9,5 +9,3 @@ var City = require('./CityModel'),
     module.exports.City = City;
     module.exports.User = User;
     module.exports.Post = Post;
-
-    // module.exports.Comment = Comment;
