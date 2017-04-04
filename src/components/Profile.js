@@ -7,15 +7,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
-export default Profile extends Component {
+export default class Profile extends Component {
+
+
   render() {
     return (
       <div className="container" id="ProfCont">
-        <div className= "col-md-9">
+        <div className="col-md-9">
           <div className="row">
 
               <div className="col-md-3 pull-left">
-                  <img src={user.image} className="img-responsive">
+                  <img src="#" className="img-responsive" alt="userImage"></img>
                   <h3>Name</h3>
                   <h3>Date Joined</h3>
                   <h3><i>Current City</i></h3>
@@ -29,7 +31,7 @@ export default Profile extends Component {
                       more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p><p>Pencil icon as a link:
           <a href="#">
             <span class="glyphicon glyphicon-pencil"></span>
-          </a>
+          </a></p>
           <p>Trash icon as a link:
           <a href="#">
             <span class="glyphicon glyphicon-trash"></span>
