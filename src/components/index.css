@@ -34,4 +34,33 @@ body {
   top:130px;
   right:50px;
   left: 50px;
+
+}
+.col-xs-offset-2{
+  text-align:center;
+  top:40vh;
+}
+.img-responsive{
+  height: 30vh;
+  width: 30vw;
+}
+.col-md-4 {
+  background: #aaaaaa;
+}
+.col-md-5{
+  background: #aaaaaa;
+}
+.btn-primary{
+  background: #aaaaaa;
+}
+img{
+  background-position: center;
+  width: 20vw;
+  height: 30vh;
+}
+.cityName{
+  text-align: center;
+}
+.cityPop{
+  text-align: center;
 }
