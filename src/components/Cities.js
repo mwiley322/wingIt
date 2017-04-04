@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 
+
 class Cities extends Component {
 
   constructor(props){
@@ -32,14 +33,13 @@ class Cities extends Component {
       let cities = this.props.cities
       let results = cities.map( (city) => {
         return (
-
-
           <div className="col-md-9">
                      <div className="thumbnail">
                          <div className="caption-full">
-                           <h2 className="cityName">{city.name}</h2>
+                           <h2 key={city.name}>
+                           </h2>
                              <h4 className="cityPop">Population:{city.Population}</h4>
-                              <img src={city.imageUrl} style={style.cityImage} alt={city.name} classNameName="img-responsive"/>
+                              <img src={city.imageUrl} style={style.cityImage} alt={city.name} className="img-responsive"/>
                          </div>
                          <div className="ratings" key={city._id}>
 
@@ -56,6 +56,7 @@ class Cities extends Component {
                                  <span className="glyphicon glyphicon-star-empty"></span>
                                  4.0 stars
                              </p>
+
 
                          </div>
                      </div>

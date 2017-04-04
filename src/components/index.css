@@ -75,16 +75,17 @@ img{
 .cityName{
   text-align: center;
 }
-.cityPop{
-  text-align: center;
-}
-.container{
-  margin: 10px;
-}
+.bg-lightgray{
 
-.postContent{
-  text-align:inherit;
+  position: fixed;
+  height: 8vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
 }
-p{
-  text-align: center;
+.thumbnail{
+  width:75vw;
 }
