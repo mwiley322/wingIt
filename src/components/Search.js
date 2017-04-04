@@ -67,43 +67,9 @@ class Search extends Component {
             type="submit">Search!</button>
         </div>
       </form>
-      <Cities cities={this.state.cities}  />
+      <Cities cities={this.state.cities}/>
       </div>
     )
-
-      // <div>
-        // <button
-        //   onClick={this.handleToggleSearch}
-        //   className="btn btn-default">
-        //     Search Again
-        // </button>
-  //
-  //
-  //   )
-  // }
-  // else {
-  //   return (
-  //     <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
-  //       <div className="col-sm-12">
-  //         <form onSubmit={this.handleSubmitQuery}>
-  //           <div className="form-group">
-  //             <input
-  //               onChange={this.handleSearchInput}
-  //               value={this.state.value}
-  //               className="form-control"
-  //               type="text"
-  //               placeholder="Enter a City..." />
-  //           </div>
-  //           <div className="form-group col-sm-4 col-sm-offset-4">
-  //             <button
-  //               className="btn btn-block btn-primary"
-  //               type="submit">Search!</button>
-  //           </div>
-  //         </form>
-  //       </div>
-  //     </div>
-  //    )
-  //   }
   }
 }
 

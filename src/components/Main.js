@@ -4,6 +4,7 @@ import Search from './Search.js';
 import { Link } from 'react-router-dom';
 import { isLoggedIn } from './AuthService';
 import './index.css';
+import Footer from './Footer.js';
 
 
 class Main extends Component {
@@ -21,8 +22,9 @@ class Main extends Component {
             </div> : <div className="jumbotron text-center"><h2>Get Access to our Community of Travelers By Logging In</h2></div>
           }
         </div>
+        <Footer />
       </div>
-    );
+    )
   }
 }
 

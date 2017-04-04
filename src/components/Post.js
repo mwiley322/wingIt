@@ -10,45 +10,38 @@ class Post extends Component {
     let results=posts.map((post)=>{
     return (
 
-      <div class="container" key={post._id}>
-<div class="row">
-  <div class="span12">
-    <div class="row">
-      <div class="span8">
+<div className="container" key={post._id}>
+    <div className="span12">
+    <div className="row">
+      <div className="span8">
       </div>
     </div>
-    <div class="row">
-      <div class="span2">
+    <div className="row">
+      <div className="span2">
         <a href="#" className="thumbnail">
           <div className="col-xs-2">
-            <p><h5>{post.author}</h5></p>
-            <img src="http://www.tutorialrepublic.com/examples/images/125x125.jpg" className="img-responsive" alt="Circular Image"/>
+            <h5>{post.author}</h5>
+            <img src="http://www.tutorialrepublic.com/examples/images/125x125.jpg" className="img-responsive" alt="user"/>
           </div>
         </a>
       </div>
-      <h5><strong>Title:{post.title}</strong></h5>
-      <div class="span10">
+      <br />
+      <h5><strong>Title:&nbsp;{post.title}</strong></h5>
+      <div className="span10">
         <p className="postContent"></p>
-          <h4>Comment</h4>
-         <h5>{post.content}</h5>
-        <p><a class="btn" href="#">Comment</a></p>
+
+         <h5> <strong>Comment: &nbsp;</strong>{post.content}</h5>
+        <p><a className="btn" href="#">Comment</a></p>
       </div>
     </div>
-    <div class="row">
-      <div class="span8">
-        <p>
-          | <i class="icon-calendar"></i> Sept 16th, 2012
-          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-          | <i class="icon-share"></i> <a href="#">39 Shares</a>
-          | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
-        <a href="#"><span class="label label-info">Mike</span></a>
-          <a href="#"><span class="label label-info">Ode</span></a>
-          <a href="#"><span class="label label-info">Broke</span></a>
-                  </p>
-              </div>
-            </div>
+    <div className="row">
+      <div className="span8">
+            <p>
+          | <i className="icon-calendar"></i> Sept 16th, 2012
+          </p>
         </div>
       </div>
+    </div>
 </div>
 
         )
