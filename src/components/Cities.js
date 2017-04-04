@@ -5,30 +5,29 @@ import style from './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
 // import { isLoggedIn } from './AuthService';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class Cities extends Component {
+
   constructor(props){
     super(props)
-    this.state={
-      posts: []
+    this.state = {
+      posts: [],
+      showPosts: false
     }
   }
+
   getCityProfile(id){
     console.log(id,"id here");
-    oneCity(id).then(data=>{
+    oneCity(id).then(data => {
       this.setState({
-        posts: data
+        posts: data,
+        showPosts: !this.state.showPosts
       })
     })
-    // render(){
-    //   return (
-    //     <div>
-    //     <Post city={this.state.clickedCity}>
-    //     </div>
-    //   )
-    // }
   }
+
     render() {
       let cities=this.props.cities
       let results=cities.map((city) => {
@@ -40,12 +39,12 @@ class Cities extends Component {
                              <h4 className="cityPop">Population:{city.Population}</h4>
                               <img src={city.imageUrl} style={style.cityImage} alt={city.name} classNameName="img-responsive"/>
                          </div>
-                         <div className="ratings" key ={city._id}>
-
+                         <div className="ratings" key={city._id}>
                           </div>
                              <h3>Affordable: ({city.isAffordable} ? $ : $$$)</h3>
-        <button onClick={this.getCityProfile.bind(this, city._id)}>See City Profile</button>
-          <Post posts = {this.state.posts}/>
+
+        <button onClick={this.getCityProfile.bind(this, city._id)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
+          {this.state.showPosts ? <Post posts={this.state.posts} /> : null}
                              <p>
                                  <span className="glyphicon glyphicon-star"></span>
                                  <span className="glyphicon glyphicon-star"></span>
@@ -54,8 +53,10 @@ class Cities extends Component {
                                  <span className="glyphicon glyphicon-star-empty"></span>
                                  4.0 stars
                              </p>
+
                          </div>
                      </div>
+
         )
      })
       return (

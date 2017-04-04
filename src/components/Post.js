@@ -1,45 +1,56 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 class Post extends Component {
+
   render() {
     let posts=this.props.posts
     let results=posts.map((post)=>{
     return (
-      <div className="container">
-        <div className="well">
-          <div className="media">
-            <a className="pull-left" href="#"></a>
-            <img className="media-object" src="http://i2.wp.com/avic411.com/public/style_images/master/profile/default_large.png" alt={post.author}>
-              </img>
-            <div className="media-body" key ={post._id}>
-              <h4 className="media-heading">{post.title}</h4>
-                  <p className="text-right">By {post.author}</p>
-                  <p>{post.content}</p>
-                <ul className="list-inline list-unstyled">
-                <li><span><i className="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-                <li>|</li>
-                <span><i className="glyphicon glyphicon-comment"></i> 2 comments</span>
-                <li>|</li>
-                <li>
-              <span className="glyphicon glyphicon-star"></span>
-                <span className="glyphicon glyphicon-star"></span>
-                  <span className="glyphicon glyphicon-star"></span>
-                    <span className="glyphicon glyphicon-star"></span>
-                      <span className="glyphicon glyphicon-star-empty"></span>
-                  </li>
-                <li>|</li>
-                <li>
 
-                <span><i className="fa fa-facebook-square"></i></span>
-                <span><i className="fa fa-twitter-square"></i></span>
-                <span><i className="fa fa-google-plus-square"></i></span>
-                </li>
-                </ul>
-                </div>
+      <div class="container" key={post._id}>
+<div class="row">
+  <div class="span12">
+    <div class="row">
+      <div class="span8">
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2">
+        <a href="#" className="thumbnail">
+          <div className="col-xs-2">
+            <p><h5>{post.author}</h5></p>
+            <img src="http://www.tutorialrepublic.com/examples/images/125x125.jpg" className="img-responsive" alt="Circular Image"/>
+          </div>
+        </a>
+      </div>
+      <h5><strong>Title:{post.title}</strong></h5>
+      <div class="span10">
+        <p className="postContent"></p>
+          <h4>Comment</h4>
+         <h5>{post.content}</h5>
+        <p><a class="btn" href="#">Comment</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8">
+        <p>
+          | <i class="icon-calendar"></i> Sept 16th, 2012
+          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
+          | <i class="icon-share"></i> <a href="#">39 Shares</a>
+          | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
+        <a href="#"><span class="label label-info">Mike</span></a>
+          <a href="#"><span class="label label-info">Ode</span></a>
+          <a href="#"><span class="label label-info">Broke</span></a>
+                  </p>
               </div>
             </div>
-          </div>
+        </div>
+      </div>
+</div>
+
         )
       })
       return (

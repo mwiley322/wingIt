@@ -33,8 +33,8 @@ class Search extends Component {
     allCities(this.state.search).then(data => {
       this.setState({
         search:'',
-        badSearch: this.state.bSearch,
-        cities: data
+        badSearch: this.state.badSearch,
+        cities: data,
       })
     })
   } else {
@@ -53,7 +53,7 @@ class Search extends Component {
     return (
       <div>
       <form onSubmit={this.handleSubmitQuery}>
-        <div className="form-group">
+        <div className="form-group col-sm-4 col-sm-offset-4">
           <input
             onChange={this.handleSearchInput}
             value={this.state.value}

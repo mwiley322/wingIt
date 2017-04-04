@@ -4,17 +4,24 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: white;
+  color: black;
 }
-.col-xs-offset-2 {
+.form-group{
     text-align:center;
     top:40vh;
-
   }
 .navbar-default {
   text-align:center;
   margin:0;
 }
+.center-block{
+  text-align:center;
+  top:40vh;
+  position: relative;
+
+}
+
+
 .row2{
   margin: 0;
 
@@ -34,6 +41,7 @@ body {
   top:130px;
   right:50px;
   left: 50px;
+  color: white;
 
 }
 .col-xs-offset-2{
@@ -50,6 +58,12 @@ body {
 .col-md-5{
   background: #aaaaaa;
 }
+.col-md-6{
+  text-align:center;
+  top:40vh;
+  position: relative;
+
+}
 .btn-primary{
   background: #aaaaaa;
 }
@@ -62,5 +76,15 @@ img{
   text-align: center;
 }
 .cityPop{
+  text-align: center;
+}
+.container{
+  margin: 10px;
+}
+
+.postContent{
+  text-align:inherit;
+}
+p{
   text-align: center;
 }
