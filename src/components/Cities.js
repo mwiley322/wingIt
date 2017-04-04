@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
+// import { Link } from 'react-router-dom';
 // import Nav from './Nav';
 import style from './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
+// import { isLoggedIn } from './AuthService';
 
 
 class Cities extends Component {
@@ -15,7 +16,6 @@ class Cities extends Component {
   }
   getCityProfile(id){
     console.log(id,"id here");
-
     oneCity(id).then(data=>{
       this.setState({
         posts: data
@@ -33,7 +33,6 @@ class Cities extends Component {
       let cities=this.props.cities
       let results=cities.map((city) => {
         return (
-
           <div className="col-md-9">
                      <div className="thumbnail">
                          <div className="caption-full">

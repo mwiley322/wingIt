@@ -13,7 +13,8 @@ const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  browserHistory.push('/special');
+  alert('you are authenticated!');
+  browserHistory.push('/profile');
 });
 
 export function login(options) {
@@ -28,6 +29,8 @@ export function login(options) {
 
 export function logout() {
   clearIdToken();
+    alert('you are trying to log out');
+    console.log('now logged out');
   browserHistory.replace('/');
 }
 
