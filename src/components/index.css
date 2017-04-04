@@ -88,3 +88,8 @@ img{
 p{
   text-align: center;
 }
+
+#ProfCont {
+  background-color: white;
+  display: inline-block!important;
+}
