@@ -3,6 +3,7 @@ import $ from 'jquery'
 
 
 class Post extends Component {
+
   render() {
     let posts = this.props.posts
     let results = posts.map( (post) => {

@@ -33,8 +33,8 @@ class Search extends Component {
     allCities(this.state.search).then(data => {
       this.setState({
         search:'',
-        badSearch: this.state.bSearch,
-        cities: data
+        badSearch: this.state.badSearch,
+        cities: data,
       })
     })
   } else {
