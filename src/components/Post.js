@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
 
 
 class Post extends Component {
   render() {
-    let posts = this.props.posts
-    let results = posts.map( (post) => {
+    let posts=this.props.posts
+    let results=posts.map((post)=>{
     return (
       <div className="container">
         <div className="well">

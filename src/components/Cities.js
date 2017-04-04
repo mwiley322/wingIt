@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router';
+// import Nav from './Nav';
 import style from './index.css'
-
-
 import {oneCity} from './Util';
 import Post from './Post';
 
@@ -9,14 +9,14 @@ import Post from './Post';
 class Cities extends Component {
   constructor(props){
     super(props)
-    this.state = {
+    this.state={
       posts: []
     }
   }
   getCityProfile(id){
     console.log(id,"id here");
 
-    oneCity(id).then(data => {
+    oneCity(id).then(data=>{
       this.setState({
         posts: data
       })
@@ -30,8 +30,8 @@ class Cities extends Component {
     // }
   }
     render() {
-      let cities = this.props.cities
-      let results = cities.map( (city) => {
+      let cities=this.props.cities
+      let results=cities.map((city) => {
         return (
 
           <div className="col-md-9">
@@ -42,7 +42,7 @@ class Cities extends Component {
                               <img src={city.imageUrl} style={style.cityImage} alt={city.name} classNameName="img-responsive"/>
                          </div>
                          <div className="ratings" key ={city._id}>
-                          
+
                           </div>
                              <h3>Affordable: ({city.isAffordable} ? $ : $$$)</h3>
         <button onClick={this.getCityProfile.bind(this, city._id)}>See City Profile</button>

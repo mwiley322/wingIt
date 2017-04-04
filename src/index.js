@@ -1,9 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.js';
+import Main from './components/Main';
+import Cities from './components/Cities';
+// import Profile from './components/Profile';
+import { browserHistory } from 'react-router';
+import {HashRouter, Route} from 'react-router-dom';
+// import { requireAuth } from './components/AuthService';
+// <Route path="/profile" component={Profile} onEnter={requireAuth} />
 
-ReactDOM.render(
 
-    <App/>,
-  document.getElementById('root')
-);
+const Root = () => {
+  return (
+    <div className="container">
+      <HashRouter history={browserHistory}>
+        <Route path="/" component={Main}/>
+      </HashRouter>
+    </div>
+  )
+}
+
+
+ReactDOM.render(<Root />, document.getElementById('root'));

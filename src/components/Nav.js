@@ -1,24 +1,55 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { login, logout, isLoggedIn } from './AuthService';
+
+// <nav className="navbar navbar-default">
+//   <div className="navbar-header">
+//     <Link className="navbar-brand" to="/">Home</Link>
+//   </div>
+//   <ul className="nav navbar-nav">
+//     <li>
+//       <Link to="/">Cities</Link>
+//     </li>
+//     <li>
+//       {
+//        ( isLoggedIn() ) ? <Link to="/profile">Profile</Link> :  ''
+//       }
+//     </li>
+//   </ul>
+//   <ul className="nav navbar-nav navbar-right">
+//     <li>
+//      {
+//        (isLoggedIn()) ? ( <button className="btn btn-danger log" onClick={() => logout()}>Log out </button> ) : ( <button className="btn btn-info log" onClick={() => login()}>Log In</button> )
+//      }
+//     </li>
+//   </ul>
+// </nav>
 
 class Nav extends Component {
   render() {
     return (
-      <div className="row2">
       <nav className="navbar navbar-default">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <a className="navbar" href="#"><h4>Wing It!</h4></a>
-      </div>
-      <ul className="nav navbar-nav pull-right">
-        <li className="active" ><a href="#">Home</a></li>
-        <li><a href="./Cities">City</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Sign Up</a></li>
-      </ul>
-    </div>
-  </nav>
-  </div>
-
+        <div className="navbar-header">
+          <Link className="navbar-brand" to="/">Home</Link>
+        </div>
+        <ul className="nav navbar-nav">
+          <li>
+            <Link to="/">Cities</Link>
+          </li>
+          <li>
+            {
+             ( isLoggedIn() ) ? <Link to="/profile">Profile</Link> :  ''
+            }
+          </li>
+        </ul>
+        <ul className="nav navbar-nav navbar-right">
+          <li>
+           {
+             (isLoggedIn()) ? ( <button className="btn btn-danger log" onClick={() => logout()}>Log out </button> ) : ( <button className="btn btn-info log" onClick={() => login()}>Log In</button> )
+           }
+          </li>
+        </ul>
+      </nav>
     );
   }
 }
