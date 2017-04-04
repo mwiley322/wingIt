@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
@@ -63,46 +62,43 @@ class Post extends Component {
     let authorVarPic = post.authorImg
     console.log("here is city!!!", cityVar);
     return (
-      <div className="container" key={post._id} >
-          <div className="span12">
-          <div className="row">
-            <div className="span8">
-            </div>
-          </div>
-          <div className="row">
-            <div className="span2">
-              <a href="#" className="thumbnail" data={post.city}>
-                <div className="col-xs-2">
-                  <p><h5>{post.author}</h5></p>
-                  <img src={post.authorImg} className="img-responsive" alt="user"/>
-                </div>
-              </a>
-            </div>
-            <h5><strong>Title:{post.title}</strong></h5>
-            <div className="span10">
-              <p className="postContent"></p>
-                <h4>Comment</h4>
-               <h5>{post.content}</h5>
-              <p><a className="btn" href="#">Comment</a></p>
-            </div>
-          </div>
-          <button onClick ={this.handleCity(post.city)}>Edit</button>
-          <button onClick={this.handleDelete(post._id)}>Delete</button>
-          <div className="row">
-            <div className="span8">
-                  <p>
-                | <i className="icon-calendar"></i> Sept 16th, 2012
-                | <i className="icon-comment"></i> <a href="#">3 Comments</a>
-                | <i className="icon-share"></i> <a href="#">39 Shares</a>
-              | <i className="icon-tags"></i> Tags : <a href="#"><span className="label label-info">Hey</span></a>
-              <a href="#"><span className="label label-info">Mike</span></a>
-                <a href="#"><span className="label label-info">Ode</span></a>
-                <a href="#"><span className="label label-info">Broke</span></a>
-                </p>
-              </div>
-            </div>
-          </div>
+
+<div className="container" key={post._id}>
+    <div className="span12">
+    <div className="row">
+      <div className="span8">
       </div>
+    </div>
+    <div className="row">
+      <div className="span2">
+        <a href="#" className="thumbnail">
+          <div className="col-xs-2">
+            <h5>{post.author}</h5>
+            <img src={post.authorImg} className="img-responsive" alt="user"/>
+          </div>
+        </a>
+      </div>
+      <br />
+      <h5><strong>Title:&nbsp;{post.title}</strong></h5>
+      <div className="span10">
+        <p className="postContent"></p>
+
+         <h5> <strong>Comment: &nbsp;</strong>{post.content}</h5>
+        <p><a className="btn" href="#">Comment</a></p>
+      </div>
+    </div>
+                <button onClick ={this.handleCity(post.city)}>Edit</button>
+          <button onClick={this.handleDelete(post._id)}>Delete</button>
+    <div className="row">
+      <div className="span8">
+            <p>
+          | <i className="icon-calendar"></i> Sept 16th, 2012
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+
         )
       })
       return (

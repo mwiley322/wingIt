@@ -134,10 +134,127 @@ var users = [
     currentCity:'Tahiti',
     aboutMe:'crazy cool',
     posts:'dance'
+  },
+  {
+    username: 'Tom',
+    password: '6543210',
+    profile: 'Tom the cat',
+    imageUrl:'http://cartoonbros.com/wp-content/uploads/2016/10/tom-4.png',
+    currentCity:'New York',
+    aboutMe:'Where are you Jerry ?',
+    posts:'meow'
+  },
+  {
+    username: 'Jerry',
+    password: '654321',
+    profile: 'Jerry the mouse',
+    imageUrl:'http://vignette2.wikia.nocookie.net/tomandjerryfan/images/9/99/Jerry_Mouse.jpg/revision/latest?cb=20110522075610',
+    currentCity:'New York',
+    aboutMe:'I love cheese',
+    posts:'smile'
+  },
+  {
+    username: 'Jason bourne',
+    password: '65432',
+    profile: 'I am Jason bourne',
+    imageUrl:'http://cdn3-www.comingsoon.net/assets/uploads/2016/02/jasonbourneheader.jpg',
+    currentCity:'unknown',
+    aboutMe:'unknown',
+    posts:'mess',
+  },
+  {
+    username: 'Bond',
+    password: '6543',
+    profile: 'James Bond',
+    imageUrl:'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/10/28/09/James-Bond.jpg',
+    currentCity:'London',
+    aboutMe:'007',
+    posts:'London drink'
+  },  
+  {
+    username: 'Tony Stark',
+    password: '654',
+    profile: 'man in iron suite',
+    imageUrl:'http://wallpapercave.com/wp/0PULYfE.jpg',
+    currentCity:'Washington DC',
+    aboutMe:'Genius, Billionaire, Playboy, Philanthropist',
+    posts:['heros.','scotch']
+  }, 
+  {
+    username: 'Lamar',
+    password: '6540',
+    profile: 'Lamar Smith',
+    imageUrl:'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAuFAAAAJDcyMDI0MDY5LTViYzktNDhiNS04ZGM5LWIwZGQwZGJjYTIwNA.jpg',
+    currentCity:'San Francisco',
+    aboutMe:'Hello, I am currently a 24 age full stack developer from Pittsburgh, PA now living in the Bay are.',
+    posts:'sick'
+  }, 
+  {
+    username: 'Jesse',
+    password: '6540',
+    profile: 'Jesse Rosenbloom',
+    imageUrl:'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAuFAAAAJDcyMDI0MDY5LTViYzktNDhiNS04ZGM5LWIwZGQwZGJjYTIwNA.jpg',
+    currentCity:'San Francisco',
+    aboutMe:'Jesse Rosenbloom aka bear',
+    posts:['That would be cool','dope']
   }
 ];
 
 var posts = [
+  {
+    author: 'Jesse',
+    title: 'dope',
+    city:'San Francisco',
+    content:'This is dope'
+  },
+  {
+    author: 'Jesse',
+    title: 'That would be cool',
+    city:'San Francisco',
+    content:'A van and a job in tech, that would be cool'
+  },
+  {
+    author: 'Lamar',
+    title: 'sick',
+    city:'San Francisco',
+    content:'This is sick bro'
+  },
+  {
+    author: 'Tony Stark',
+    title: 'heros',
+    city:'Washington DC',
+    content:'Heroes are made by the paths they choose'
+  },
+  {
+    author: 'Tony Stark',
+    title: 'scotch',
+    city:'New York',
+    content:'Give me scotch'
+  },
+  {
+    author: 'Bond',
+    title: 'London drink',
+    city:'London',
+    content:'A medium dry martini, lemon peel. Shaken, not stirred.'
+  },
+  {
+    author: 'Jason bourne',
+    title: 'mess',
+    city:'unknown',
+    content:'This city is mess'
+  },
+  {
+    author: 'Jerry',
+    title: 'smile',
+    city:'New York',
+    content:'I like smile on new yorker faces'
+  },
+  {
+    author: 'Tom',
+    title: 'meow',
+    city:'New York',
+    content:'Meoooowww'
+  },
   {
     author: 'chavez',
     title: 'dance',
@@ -175,7 +292,30 @@ var posts = [
     city:'San Francisco',
     content:'Raider nation yeehaw',
     authorImg: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/005/095/0d7/11ac3b7.jpg'
-
+  },
+  {
+    author: 'jim',
+    title: 'cats',
+    city:'San Francisco',
+    content:'meowmeowmeow!'
+  },
+  {
+    author: 'jake',
+    title: 'dog',
+    city:'San Francisco',
+    content:'roofroofroofroof!'
+  },
+  {
+    author: 'jill',
+    title: 'sharks',
+    city:'San Francisco',
+    content:'yumyumyumyum!'
+  },
+  {
+    author: 'jack',
+    title: 'snakes',
+    city:'San Francisco',
+    content:'sssssssssssS!'
   }
 ];
 

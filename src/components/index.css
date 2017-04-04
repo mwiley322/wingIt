@@ -75,13 +75,25 @@ img{
 .cityName{
   text-align: center;
 }
+.bg-lightgray{
+
+  position: fixed;
+  height: 8vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
+.thumbnail{
+  width:75vw;
+}
 .cityPop{
   text-align: center;
 }
-.container{
-  margin: 10px;
-}
 
-.postContent{
-  text-align:inherit;
+#ProfCont {
+  background-color: white;
+  display: inline-block!important;
 }
