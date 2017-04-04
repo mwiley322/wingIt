@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 class Post extends Component {
+
   render() {
     let posts = this.props.posts
     let results = posts.map( (post) => {
