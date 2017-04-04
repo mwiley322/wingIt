@@ -53,7 +53,7 @@ class Search extends Component {
     return (
       <div>
       <form onSubmit={this.handleSubmitQuery}>
-        <div className="form-group">
+        <div className="form-group col-sm-4 col-sm-offset-4">
           <input
             onChange={this.handleSearchInput}
             value={this.state.value}

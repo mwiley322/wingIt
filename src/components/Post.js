@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
+import $ from 'jquery';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 class Post extends Component {
@@ -8,40 +10,48 @@ class Post extends Component {
     let posts = this.props.posts
     let results = posts.map( (post) => {
     return (
-      <div className="container">
-        <div className="well">
-          <div className="media">
-            <a className="pull-left" href="#"></a>
-            <img className="media-object" src="http://i2.wp.com/avic411.com/public/style_images/master/profile/default_large.png" alt={post.author}>
-              </img>
-            <div className="media-body" key ={post._id}>
-              <h4 className="media-heading">{post.title}</h4>
-                  <p className="text-right">By {post.author}</p>
-                  <p>{post.content}</p>
-                <ul className="list-inline list-unstyled">
-                <li><span><i className="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-                <li>|</li>
-                <span><i className="glyphicon glyphicon-comment"></i> 2 comments</span>
-                <li>|</li>
-                <li>
-              <span className="glyphicon glyphicon-star"></span>
-                <span className="glyphicon glyphicon-star"></span>
-                  <span className="glyphicon glyphicon-star"></span>
-                    <span className="glyphicon glyphicon-star"></span>
-                      <span className="glyphicon glyphicon-star-empty"></span>
-                  </li>
-                <li>|</li>
-                <li>
 
-                <span><i className="fa fa-facebook-square"></i></span>
-                <span><i className="fa fa-twitter-square"></i></span>
-                <span><i className="fa fa-google-plus-square"></i></span>
-                </li>
-                </ul>
-                </div>
+      <div class="container" key={post._id}>
+
+<div class="row">
+  <div class="span12">
+    <div class="row">
+      <div class="span8">
+        <h4><strong>{post.title}</strong></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2">
+        <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="" id="userPostImg" />
+        </a>
+      </div>
+      <div class="span10">
+        <p className="postContent">
+         {post.content} </p>
+        <p><a class="btn" href="#">Read more</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8">
+        <p></p>
+        <p>
+          <i class="icon-user"></i> <h4>{post.author}</h4>
+          | <i class="icon-calendar"></i> Sept 16th, 2012
+          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
+          | <i class="icon-share"></i> <a href="#">39 Shares</a>
+          | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a>
+        <a href="#"><span class="label label-info">Mike</span></a>
+          <a href="#"><span class="label label-info">Ode</span></a>
+          <a href="#"><span class="label label-info">Broke</span></a>
+                  </p>
               </div>
             </div>
-          </div>
+        </div>
+      </div>
+    <br />
+  <hr />
+</div>
         )
       })
       return (
