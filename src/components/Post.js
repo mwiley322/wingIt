@@ -37,7 +37,7 @@ class Post extends Component {
     <div className="row">
       <div className="span8">
             <p>
-          | <i className="icon-calendar"></i> &nbsp;Sept 16th, 2012
+          | <i className="icon-calendar"></i> Sept 16th, 2012
           </p>
         </div>
       </div>
