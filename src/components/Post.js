@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
@@ -12,31 +11,32 @@ class Post extends Component {
     return (
 
       <div class="container" key={post._id}>
-
 <div class="row">
   <div class="span12">
     <div class="row">
       <div class="span8">
-        <h4><strong>{post.title}</strong></h4>
       </div>
     </div>
     <div class="row">
       <div class="span2">
-        <a href="#" class="thumbnail">
-            <img src="http://placehold.it/260x180" alt="" id="userPostImg" />
+        <a href="#" className="thumbnail">
+          <div className="col-xs-2">
+            <p><h5>{post.author}</h5></p>
+            <img src="http://www.tutorialrepublic.com/examples/images/125x125.jpg" className="img-responsive" alt="Circular Image"/>
+          </div>
         </a>
       </div>
+      <h5><strong>Title:{post.title}</strong></h5>
       <div class="span10">
-        <p className="postContent">
-         {post.content} </p>
-        <p><a class="btn" href="#">Read more</a></p>
+        <p className="postContent"></p>
+          <h4>Comment</h4>
+         <h5>{post.content}</h5>
+        <p><a class="btn" href="#">Comment</a></p>
       </div>
     </div>
     <div class="row">
       <div class="span8">
-        <p></p>
         <p>
-          <i class="icon-user"></i> <h4>{post.author}</h4>
           | <i class="icon-calendar"></i> Sept 16th, 2012
           | <i class="icon-comment"></i> <a href="#">3 Comments</a>
           | <i class="icon-share"></i> <a href="#">39 Shares</a>
@@ -49,9 +49,8 @@ class Post extends Component {
             </div>
         </div>
       </div>
-    <br />
-  <hr />
 </div>
+
         )
       })
       return (
