@@ -13,14 +13,7 @@ var app = express(),
 // set port to env or 3000
 var port = process.env.API_PORT || 3001;
 
-//db config
-//ADD YOUR INFO HERE!
-// To connect using a driver via the standard MongoDB URI (what's this?):
-// mongoose.connect('mongodb://ali554:123456@ds161159.mlab.com:61159/mern-crud');
-
-var controllers = require('./controllers');
-
-
+//Middleware
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 
@@ -33,48 +26,6 @@ app.use(function(req, res, next) {
   //Remove caching
   res.setHeader('Cache-Control', 'no-cache');
   next();
-});
-
-//use router config when we call /API
-app.use('/api', router);
-
-// set route path and init API
-
-router.get('/', function(req,res) {
-  res.json({message: 'API Initialized!'});
-});
-
-// router.get('/', function(req,res) {
-//   res.json({message: 'API Initialized!'});
-// });
-//
-//
-// /*
-//  * JSON API Endpoints
-//  */
-//  router.route('/city')
-//
-//   .get(function(req,res) {
-//     City.find(function(err, cities){
-//       if(err){ res.send(err)}
-//       res.json(city);
-// });
-// })
-// .post(function(req, res) {
-//     var comment = new City();
-//     city.name = req.body.name;
-//     // comment.text = req.body.text;
-//
-//     city.save(function(err) {
-//       if(err){res.send(err)}
-//       res.json({ message: 'city successfully added!'});
-//     });
-//   });
-//
-//
-
-router.get('/', function(req,res) {
-  res.json({message: 'YAY THE API WORKS!'});
 });
 
 //////////////////////

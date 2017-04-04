@@ -22,7 +22,7 @@ var UserSchema = new Schema({
 // },
   imageUrl: {
     type: String,
-    default: 'NoUserPic.png'
+    default: './NoUserPic.png'
   },
   currentCity: String,
   aboutMe: String,
