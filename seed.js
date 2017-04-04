@@ -255,41 +255,43 @@ var posts = [
     city:'New York',
     content:'Meoooowww'
   },
-  // {
-  //   author: '',
-  //   title: '',
-  //   city:'',
-  //   content:''
-  // },
   {
     author: 'chavez',
     title: 'dance',
     city:'Tahiti',
-    content:'i love dance'
+    content:'i love dance',
+    authorImg: 'https://i.ytimg.com/vi/Ny9oHbppZYw/hqdefault.jpg'
   },
   {
     author: 'KelleyChick',
     title: 'fun',
     city:'Philadelphia',
-    content:'fun is so fun'
+    content:'fun is so fun',
+    authorImg: 'https://s-media-cache-ak0.pinimg.com/originals/80/ec/97/80ec97b285fc3877e0aec96ac6072ebf.jpg'
+
   },
   {
     author: 'KelleyChick',
     title: 'parks',
     city:'Philadelphia',
-    content:'parks are the shizz'
+    content:'parks are the shizz',
+    authorImg: 'https://s-media-cache-ak0.pinimg.com/originals/80/ec/97/80ec97b285fc3877e0aec96ac6072ebf.jpg'
+
   },
   {
     author: 'jimbro',
     title: 'beer',
     city:'San Francisco',
-    content:'its miller time'
+    content:'its miller time',
+    authorImg: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/005/095/0d7/11ac3b7.jpg'
+
   },
   {
     author: 'jimbro',
     title: 'football',
     city:'San Francisco',
-    content:'Raider nation yeehaw'
+    content:'Raider nation yeehaw',
+    authorImg: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/005/095/0d7/11ac3b7.jpg'
   },
   {
     author: 'jim',

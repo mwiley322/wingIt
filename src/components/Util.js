@@ -11,7 +11,14 @@ export function allCities (search) {
 export function oneCity (id) {
   var urlOne = ('http://localhost:3001/api/cities/' + id + '/posts');
   return $.getJSON(urlOne).then(function(res) {
-    console.log('post res from db', res);
+    console.log('all the posts res from db', res);
     return res;
+  })
+}
+
+export function post(username, cityname){
+  var urlPost = ('http://localhost:3001/api/user/' + username + '/city/' + cityname + '/posts');
+  return $.post(urlPost).then(function(res) {
+    console.log('post added to db', res);
   })
 }

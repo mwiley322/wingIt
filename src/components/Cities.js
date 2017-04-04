@@ -19,7 +19,6 @@ class Cities extends Component {
   }
 
   getCityProfile(id){
-    console.log(id,"id here");
     oneCity(id).then(data => {
       this.setState({
         posts: data,
@@ -32,16 +31,17 @@ class Cities extends Component {
       let cities=this.props.cities
       let results=cities.map((city) => {
         return (
-          <div className="col-md-9">
+          <div key={city._id} className="col-md-9">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>
                              <h4 className="cityPop">Population:{city.Population}</h4>
                               <img src={city.imageUrl} style={style.cityImage} alt={city.name} className="img-responsive"/>
                          </div>
+                         <h6>Description= {city.description}</h6>
                          <div className="ratings" key={city._id}>
                           </div>
-                             <h3>Affordable: ({city.isAffordable} ? $ : $$$)</h3>
+                             <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
 
         <button onClick={this.getCityProfile.bind(this, city._id)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
           {this.state.showPosts ? <Post posts={this.state.posts} /> : null}
