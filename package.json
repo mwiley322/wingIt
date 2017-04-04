@@ -5,8 +5,10 @@
   "dependencies": {
     "axios": "0.15.3",
     "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
     "express": "^4.15.2",
     "foreman": "^2.0.0",
+    "html-webpack-plugin": "^2.28.0",
     "marked": "0.3.6",
     "mongoose": "^4.9.2",
     "react": "^15.4.2",

@@ -51,6 +51,7 @@ function post(req,res){
     content:req.body.content,
   });
   newPost.author = foundUser.username;
+  newPost.authorImg = foundUser.imageUrl;
   var cityId = req.params.cityId;
   db.City.findById(cityId, function(err,foundCity){
     if(err){
