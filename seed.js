@@ -17,6 +17,78 @@ var cities =[
   imageUrl: 'https://valientmarketresearch.com/wp-content/uploads/2014/09/Philadelphia-Market-Research-Night-Skyline.jpg',
   Population: 120000,
   isAffordable: true
+  },
+  {
+  name: 'London',
+  imageUrl: 'https://media.timeout.com/images/100644443/image.jpg',
+  Population: 8000000,
+  isAffordable: false
+  },
+  {
+  name: 'Brussels',
+  imageUrl: 'http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/brussels-evening-belg0316.jpg?itok=thl3zxby',
+  Population: 1100000,
+  isAffordable: false
+  },
+  {
+  name: 'New York',
+  imageUrl: 'https://media.timeout.com/images/103444978/image.jpg',
+  Population: 9000000,
+  isAffordable: false
+  }, 
+  {
+  name: 'Dubai',
+  imageUrl: 'http://www.burjkhalifa.ae/en/Images/home_bg_tcm186-80501.jpg',
+  Population: 270000,
+  isAffordable: false
+  },
+  {
+  name: 'Hong Kong',
+  imageUrl: 'https://www.whitecase.com/sites/whitecase/files/images/locations/HongKong_Tablet_1920x960.jpg',
+  Population: 7100000,
+  isAffordable: false
+  },
+  {
+  name: 'Washington DC',
+  imageUrl: 'http://www.momentmag.com/wp-content/uploads/2015/10/dc.jpg',
+  Population: 7062000,
+  isAffordable: true
+  },
+  {
+  name: 'Berkely',
+  imageUrl: 'https://whitneylab.berkeley.edu/images/berkeleycampus.jpg',
+  Population: 116768,
+  isAffordable: false
+  },
+  {
+  name: 'Austin',
+  imageUrl: 'http://cdn.mntm.me/76/79/82/10-Must-Stops-in-Austin-with-Kids-Where-to-Stay-Eat-and-What-to-Do-7679821bf0f840548b848888b6e8ccd0.jpg',
+  Population: 885400,
+  isAffordable: true
+  },
+  {
+  name: 'Dallas',
+  imageUrl: 'http://cityclubdallas.com/wp-content/uploads/revslider/home1/Dallas2.jpg',
+  Population: 1250000,
+  isAffordable: true
+  },
+  {
+  name: 'Seattle',
+  imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Space_Needle002.jpg/1200px-Space_Needle002.jpg',
+  Population: 652405,
+  isAffordable: true
+  },
+  {
+  name: 'Moscow',
+  imageUrl: 'http://fullwonders.com/wp-content/uploads/2016/12/moscow-kremlin.jpg',
+  Population: 11920000,
+  isAffordable: true
+  },
+  {
+  name: 'Los Angeles',
+  imageUrl: 'http://ingustravel.com/assets/components/gallery/files/44/4938.jpg',
+  Population: 38840000,
+  isAffordable: false
   }
 ];
 
