@@ -4,20 +4,27 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
+    jwt = require('express-jwt'),
+    cors = require('cors'),
     controllers = require('./controllers');
 
 //create instances
 var app = express(),
     router = express.Router();
 
-// set port to env or 3000
 var port = process.env.API_PORT || 3001;
 
 //Middleware
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
-//Prevent CORS errors
+const authCheck = jwt({
+  secret: 'ZBkmrcMB84hMAk1auWxS-mKo5S_lU7YM-Q2p_rBvIlkC6AvefMTYXypDKn9__eLM',
+  audience: 'e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL'
+});
+
+// Prevent CORS errors
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
