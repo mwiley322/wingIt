@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
+// import Nav from './Nav';
 import style from './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
+// import { isLoggedIn } from './AuthService';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-
-
-
-
 
 class Cities extends Component {
 
@@ -30,8 +29,8 @@ class Cities extends Component {
   }
 
     render() {
-      let cities = this.props.cities
-      let results = cities.map( (city) => {
+      let cities=this.props.cities
+      let results=cities.map((city) => {
         return (
           <div className="col-md-9">
                      <div className="thumbnail">
@@ -41,7 +40,6 @@ class Cities extends Component {
                               <img src={city.imageUrl} style={style.cityImage} alt={city.name} className="img-responsive"/>
                          </div>
                          <div className="ratings" key={city._id}>
-
                           </div>
                              <h3>Affordable: ({city.isAffordable} ? $ : $$$)</h3>
 

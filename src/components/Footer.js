@@ -12,7 +12,6 @@ import React, { Component } from 'react';
         </div>
       </footer>
       </div>
-
   )
   }
 }
