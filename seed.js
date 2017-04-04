@@ -173,6 +173,24 @@ var posts = [
     title: 'cats',
     city:'San Francisco',
     content:'meowmeowmeow!'
+  },
+  {
+    author: 'jake',
+    title: 'dog',
+    city:'San Francisco',
+    content:'roofroofroofroof!'
+  },
+  {
+    author: 'jill',
+    title: 'sharks',
+    city:'San Francisco',
+    content:'yumyumyumyum!'
+  },
+  {
+    author: 'jack',
+    title: 'snakes',
+    city:'San Francisco',
+    content:'sssssssssssS!'
   }
 ];
 
