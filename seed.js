@@ -97,7 +97,7 @@ var users = [
     username: 'jimbro',
     password: '123',
     profile: 'Jim howard',
-    image:'image',
+    imageUrl:'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/005/095/0d7/11ac3b7.jpg',
     currentCity:'San Francisco',
     aboutMe:'awesome',
     posts:['beer','football']
@@ -106,7 +106,7 @@ var users = [
     username: 'kelleyChick',
     password: '123',
     profile: 'Kelley Smith',
-    image:'image',
+    imageUrl:'https://s-media-cache-ak0.pinimg.com/originals/80/ec/97/80ec97b285fc3877e0aec96ac6072ebf.jpg',
     currentCity:'Philadelphia',
     aboutMe:'cool lass',
     posts:['fun','parks']
@@ -115,7 +115,7 @@ var users = [
     username: 'chavez',
     password: '123123',
     profile: 'Chavez smalls',
-    image:'image',
+    imageUrl:'https://i.ytimg.com/vi/Ny9oHbppZYw/hqdefault.jpg',
     currentCity:'Tahiti',
     aboutMe:'crazy cool',
     posts:'dance'
