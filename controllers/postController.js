@@ -39,21 +39,24 @@ function indexProfile(req,res){
   });
 };
 
-//POST /api/user/:userId/city/:cityId/posts
+//POST /api/user/:username/city/:cityname/posts
 function post(req,res){
-  var userId = req.params.userId;
-  db.User.findById(userId, function(err, foundUser){
+  var username = req.params.username;
+  console.log('username', username);
+  db.User.findOne({username:username}, function(err, foundUser){
     if(err){
        console.log('error finding user',err);
      }
+     console.log('foundUser:',foundUser);
+
   var newPost = new db.Post({
     title:req.body.title,
     content:req.body.content,
   });
   newPost.author = foundUser.username;
   newPost.authorImg = foundUser.imageUrl;
-  var cityId = req.params.cityId;
-  db.City.findById(cityId, function(err,foundCity){
+  var cityname = req.params.cityname;
+  db.City.findOne({name:cityname}, function(err,foundCity){
     if(err){
       console.log("error finding city",err);
     }

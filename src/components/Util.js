@@ -16,9 +16,25 @@ export function oneCity (id) {
   })
 }
 
-export function post(username, cityname){
+export function createPost(post){
+  var username = post.author;
+  var cityname = post.city;
+  console.log(post,"this is going to db");
   var urlPost = ('http://localhost:3001/api/user/' + username + '/city/' + cityname + '/posts');
-  return $.post(urlPost).then(function(res) {
+  return $.post(urlPost, post).then(function(res) {
     console.log('post added to db', res);
   })
+}
+
+export function deletePost(id){
+  console.log("this is id in fx", id);
+  var urlDelete = ('http://localhost:3001/api/posts/' + id);
+  return $.ajax({
+    method:"DELETE",
+    url: urlDelete,
+    success: function(res) {
+    console.log("we deleted", id);
+
+  }
+})
 }
