@@ -8,8 +8,8 @@ export function allCities (search) {
   })
 }
 
-export function oneCity (id) {
-  var urlOne = ('http://localhost:3001/api/cities/' + id + '/posts');
+export function oneCity (name) {
+  var urlOne = ('http://localhost:3001/api/cities/' + name + '/posts');
   return $.getJSON(urlOne).then(function(res) {
     console.log('all the posts res from db', res);
     return res;

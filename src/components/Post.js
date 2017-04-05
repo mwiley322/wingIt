@@ -3,39 +3,45 @@ import {createPost} from './Util';
 import {oneCity} from './Util';
 import {deletePost} from './Util';
 import {allCities} from './Util';
-
+import Auth0Lock from 'auth0-lock';
+const ID_TOKEN_KEY= 'id_token';
 
 class Post extends Component {
 
   constructor(props){
+    console.log("props are: ", props)
     super(props)
-    this.state = {
+    this.state= {
       title:'',
       content:'',
-      city:'',
+      city: this.props.cities.name,
       author:'',
-      posts:this.props.posts
+      posts:this.props.posts,
     }
     this.handlePostSubmit= this.handlePostSubmit.bind(this);
-    this.handleContentChange = this.handleContentChange.bind(this);
-    this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
+    this.handleContentChange= this.handleContentChange.bind(this);
+    this.loadPostsFromServer= this.loadPostsFromServer.bind(this);
   }
 
+  // componentDidUpdate(){
+  // }
   loadPostsFromServer(){
-    allCities('').then(res => {
+    oneCity(this.state.city).then(res=> {
+      console.log("res is ", res);
       this.setState({
         posts:res
       })
       console.log("working from loadpsotfromserver", this.state.posts);
     })
   }
-  //   componentDidUnmount(){
+  //   componentWillUnmount(){
   //     setInterval(0);
   //   }
-  // componentDidMount(){
-  //   this.loadPostsFromServer();
-  //   setInterval(this.loadPostsFromServer, this.props.pollInterval)
-  // }
+  componentDidMount(){
+    console.log("the city in DidMount are", this.state.city)
+    this.loadPostsFromServer();
+    setInterval(this.loadPostsFromServer, this.props.pollInterval)
+  }
 
   handleDelete(id){
     console.log("going to delete" , id);
@@ -48,7 +54,7 @@ class Post extends Component {
 
   handlePostSubmit(e){
     e.preventDefault();
-    let post = this.state;
+    let post= this.state;
     console.log(post,'post here ');
     createPost(post)
   }
@@ -61,19 +67,19 @@ class Post extends Component {
       city:this.refs.city.value
     })
   }
-  handleCity(cityVar){
-    console.log("cityvar going to handleCity fx", cityVar);
-    let city = cityVar
-    // this.setState({
-    //   city: city
-    // })
-  }
-  handleAuthor(){
-    this.setState({
-      author:'author',
-      authorImg:'authorPic'
-    })
-  }
+  // handleCity(cityVar){
+  //   console.log("cityvar going to handleCity fx", cityVar);
+  //   let city= cityVar
+  //   // this.setState({
+  //   //   city: city
+  //   // })
+  // }
+  // handleAuthor(){
+  //   this.setState({
+  //     author:'author',
+  //     authorImg:'authorPic'
+  //   })
+  // }
 
   componentWillReceiveProps(cityVar){
     this.setState({
@@ -84,11 +90,11 @@ class Post extends Component {
   }
 
   render() {
-    let posts = this.props.posts
-    let results = posts.map( (post) => {
-    let cityVar = post.city
-    let authorVarName = post.author
-    let authorVarPic = post.authorImg
+    let posts= this.state.posts
+    let results= posts.map( (post)=> {
+    let cityVar= post.city
+    let authorVarName= post.author
+    let authorVarPic= post.authorImg
     return (
 
     <div className="container" key={post._id}>
@@ -121,7 +127,7 @@ class Post extends Component {
                 <p>
                <i className="icon-calendar"></i> Sept 16, 2012
               </p>
-              <button onClick = {this.handlePostEdit.bind(this, post._id)}>edit</button>
+              <button onClick={this.handlePostEdit.bind(this, post._id)}>edit</button>
               <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
             </div>
           </div>
@@ -137,16 +143,16 @@ class Post extends Component {
           <div>
           <h2>Write a post</h2>
             <form onSubmit={this.handlePostSubmit}>
-              <input placeholder ="Title" type="text"
+              <input placeholder="Title" type="text"
                 ref='title' onChange={this.handleContentChange}/>
               <br/>
-              <input placeholder ="Enter thoughts here" type="text"
+              <input placeholder="Enter thoughts here" type="text"
                 ref='content' onChange={this.handleContentChange}/>
                 <br/>
-                <input placeholder ="Enter current City" type="text"
+                <input placeholder="Enter current City" type="text"
                   ref='city' onChange={this.handleContentChange}/>
                   <br/>
-                  <input placeholder ="Enter username" type="text"
+                  <input placeholder="Enter username" type="text"
                     ref='username' onChange={this.handleContentChange}/>
               <button type='submit'>Post</button>
             </form>

@@ -11,12 +11,13 @@ class Search extends Component {
       search:'',
       badSearch:false,
       cities: []
-    }
+        }
     this.handleSearchInput = this.handleSearchInput.bind(this)
     this.handleSubmitQuery = this.handleSubmitQuery.bind(this)
   }
 
   handleSearchInput(e){
+    console.log("search input pressed");
     this.setState({
       search: e.target.value,
     })
@@ -34,8 +35,9 @@ class Search extends Component {
       this.setState({
         search:'',
         badSearch: this.state.badSearch,
-        cities: data,
+        cities: data
       })
+      console.log("this is cityName from search", this.state.cities);
     })
   } else {
     this.setState({
@@ -48,6 +50,7 @@ class Search extends Component {
  }
 
   render(){
+    console.log("from search: ",this.state.cities)
     // let {handleSearchInput, handleSubmitQuery, query} = this.props
 
     return (
