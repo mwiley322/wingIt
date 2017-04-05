@@ -29,11 +29,13 @@ class Post extends Component {
       console.log("working from loadpsotfromserver", this.state.posts);
     })
   }
-
-  componentDidMount(){
-    this.loadPostsFromServer();
-    setInterval(this.loadPostsFromServer, this.props.pollInterval)
-  }
+  //   componentDidUnmount(){
+  //     setInterval(0);
+  //   }
+  // componentDidMount(){
+  //   this.loadPostsFromServer();
+  //   setInterval(this.loadPostsFromServer, this.props.pollInterval)
+  // }
 
   handleDelete(id){
     console.log("going to delete" , id);
