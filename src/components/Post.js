@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 import {createPost} from './Util';
 import {oneCity} from './Util';
 import {deletePost} from './Util';
@@ -95,6 +93,7 @@ class Post extends Component {
         <div className="span12">
         <div className="row">
           <div className="span8">
+
           </div>
         </div>
         <div className="row">

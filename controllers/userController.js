@@ -13,7 +13,8 @@ function index(req,res) {
 //GET /api/users/:userId
 function show(req,res) {
   var id = req.params.userId;
-  db.User.findById(id, function(err, foundUser){
+  console.log('THIS IS MY REQUEST ', id);
+  db.User.find({ idFromAuth0 : id }, function(err, foundUser){
     if(err){
       console.log("Error getting that user: ", err);
     }

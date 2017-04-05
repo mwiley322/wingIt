@@ -10,7 +10,7 @@ import { requireAuth } from './components/AuthService';
 
 const Root = () => {
   return (
-    <div className="container">
+    <div>
     <HashRouter history={browserHistory}>
       <Route path="/" component={Main}/>
     </HashRouter>
