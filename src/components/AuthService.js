@@ -3,23 +3,24 @@ import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 const ID_TOKEN_KEY = 'id_token';
 
-const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', {
-    auth: {
-      redirectUrl: `${window.location.origin}`,
-      responseType: 'token'
-    }
-  }
-);
+var options = {auth: {
+  redirectUrl: `${window.location.origin}`,
+  responseType: 'token',
+  params: {scope: 'openid profile'}}
+}
+
+const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', options);
+
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
+  console.log(authResult);
   alert('you are authenticated!');
   browserHistory.push('/profile');
 });
 
 export function login(options) {
   lock.show(options);
-
   return {
     hide() {
       lock.hide();

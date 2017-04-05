@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 class Post extends Component {
@@ -9,7 +7,6 @@ class Post extends Component {
     let posts=this.props.posts
     let results=posts.map((post)=>{
     return (
-
       <div class="container" key={post._id}>
 <div class="row">
   <div class="span12">

@@ -5,8 +5,6 @@ import style from './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
 // import { isLoggedIn } from './AuthService';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 
 class Cities extends Component {
 

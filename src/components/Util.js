@@ -15,3 +15,7 @@ export function oneCity (id) {
     return res;
   })
 }
+
+export function createUser() {
+
+}
