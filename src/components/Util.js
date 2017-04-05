@@ -22,3 +22,11 @@ export function createUser(data) {
     console.log('posted response from DB: ', res);
   });
 }
+
+export function checkForExistingUser (id) {
+  var url = ('http://localhost:3001/api/users/' + id);
+  return $.getJSON(url).then(function(res) {
+    console.log('SEARCH IN CHECK FOR EXISTING USER: ', res);
+    return res;
+  });
+}

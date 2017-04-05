@@ -9,6 +9,7 @@ var Comment = require('./CommentModel');
 var UserSchema = new Schema({
   username: { type: String, unique: true },
     username: { type: String, unique: true },
+    idFromAuth0: String,
     email: String,
     imageUrl: { type: String, default: './NoUserPic.png' },
     currentCity: String,

@@ -2,7 +2,7 @@ import Auth0Lock from 'auth0-lock';
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 const ID_TOKEN_KEY = 'id_token';
-import {createUser} from './Util';
+import {createUser, checkForExistingUser} from './Util';
 
 var options = {auth: {
   redirectUrl: `${window.location.origin}`,
@@ -15,13 +15,18 @@ const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  var data = {
-    username: authResult.idTokenPayload.username,
-    dateJoined: authResult.idTokenPayload.created_at,
-    imageUrl: authResult.idTokenPayload.picture,
-    email: authResult.idTokenPayload.email
-  };
-  createUser(data);
+  // checkForExistingUser(authResult.idTokenPayload.user_id);
+  // if (existence.length === 0) {
+  //   console.log('I DONT EXIST YET SO I WILL BE ADDED TO THE DB!');
+    var data = {
+      idFromAuth0: authResult.idTokenPayload.user_id,
+      username: authResult.idTokenPayload.username,
+      dateJoined: authResult.idTokenPayload.created_at,
+      imageUrl: authResult.idTokenPayload.picture,
+      email: authResult.idTokenPayload.email
+    };
+    createUser(data);
+  // }
   browserHistory.push('/profile');
 });
 
