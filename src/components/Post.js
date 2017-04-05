@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import {createPost} from './Util';
 import {oneCity} from './Util';
 import {deletePost} from './Util';
+import {allCities} from './Util';
 
 
 class Post extends Component {
@@ -23,7 +24,7 @@ class Post extends Component {
   }
 
   loadPostsFromServer(){
-    oneCity('58e4608f5f6c1e67388e1409').then(res => {
+    allCities('').then(res => {
       this.setState({
         posts:res
       })
@@ -39,6 +40,10 @@ class Post extends Component {
   handleDelete(id){
     console.log("going to delete" , id);
     deletePost(id);
+  }
+
+  handlePostEdit(id){
+    console.log('going to edit', id);
   }
 
   handlePostSubmit(e){
@@ -115,6 +120,7 @@ class Post extends Component {
                 <p>
                <i className="icon-calendar"></i> Sept 16, 2012
               </p>
+              <button onClick = {this.handlePostEdit.bind(this, post._id)}>edit</button>
               <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
             </div>
           </div>
