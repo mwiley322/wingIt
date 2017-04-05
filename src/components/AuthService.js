@@ -2,24 +2,36 @@ import Auth0Lock from 'auth0-lock';
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 const ID_TOKEN_KEY = 'id_token';
+import {createUser, checkForExistingUser} from './Util';
 
-const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', {
-    auth: {
-      redirectUrl: `${window.location.origin}`,
-      responseType: 'token'
-    }
-  }
-);
+var options = {auth: {
+  redirectUrl: `${window.location.origin}`,
+  responseType: 'token',
+  params: {scope: 'openid profile'}}
+}
+
+const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', options);
+
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  alert('you are authenticated!');
+  // checkForExistingUser(authResult.idTokenPayload.user_id);
+  // if (existence.length === 0) {
+  //   console.log('I DONT EXIST YET SO I WILL BE ADDED TO THE DB!');
+    var data = {
+      idFromAuth0: authResult.idTokenPayload.user_id,
+      username: authResult.idTokenPayload.username,
+      dateJoined: authResult.idTokenPayload.created_at,
+      imageUrl: authResult.idTokenPayload.picture,
+      email: authResult.idTokenPayload.email
+    };
+    createUser(data);
+  // }
   browserHistory.push('/profile');
 });
 
 export function login(options) {
   lock.show(options);
-
   return {
     hide() {
       lock.hide();
