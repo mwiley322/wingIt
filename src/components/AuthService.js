@@ -41,9 +41,10 @@ export function login(options) {
 
 export function logout() {
   clearIdToken();
-    alert('you are trying to log out');
+    // alert('you are trying to log out');
     console.log('now logged out');
-  browserHistory.replace('/');
+    // browserHistory.replace('/');
+    location.reload();
 }
 
 export function requireAuth(nextState, replace) {

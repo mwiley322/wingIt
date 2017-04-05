@@ -30,6 +30,7 @@ export function checkForExistingUser (id) {
     console.log('SEARCH IN CHECK FOR EXISTING USER: ', res);
     return res;
   });
+}
 
 export function createPost(post){
   var username = post.author;
@@ -49,6 +50,6 @@ export function deletePost(id){
     url: urlDelete,
     success: function(res) {
     console.log("we deleted", id);
+}
 })
-
 }
