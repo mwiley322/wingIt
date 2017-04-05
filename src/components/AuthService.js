@@ -2,6 +2,7 @@ import Auth0Lock from 'auth0-lock';
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 const ID_TOKEN_KEY = 'id_token';
+import {createUser} from './Util';
 
 var options = {auth: {
   redirectUrl: `${window.location.origin}`,
@@ -14,8 +15,13 @@ const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  console.log(authResult);
-  alert('you are authenticated!');
+  var data = {
+    username: authResult.idTokenPayload.username,
+    dateJoined: authResult.idTokenPayload.created_at,
+    imageUrl: authResult.idTokenPayload.picture,
+    email: authResult.idTokenPayload.email
+  };
+  createUser(data);
   browserHistory.push('/profile');
 });
 

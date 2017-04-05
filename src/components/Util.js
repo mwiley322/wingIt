@@ -16,6 +16,9 @@ export function oneCity (id) {
   })
 }
 
-export function createUser() {
-
+export function createUser(data) {
+  var url = 'http://localhost:3001/api/users/';
+  $.post(url, data, function(res) {
+    console.log('posted response from DB: ', res);
+  });
 }
