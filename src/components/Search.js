@@ -1,76 +1,20 @@
 import React, { Component } from 'react';
-import {allCities} from './Util';
-import Cities from './Cities';
+import style from '../style';
 
-
-class Search extends Component {
-
-  constructor(props){
-    super(props)
-    this.state = {
-      search:'',
-      badSearch:false,
-      cities: []
-    }
-    this.handleSearchInput = this.handleSearchInput.bind(this)
-    this.handleSubmitQuery = this.handleSubmitQuery.bind(this)
-  }
-
-  handleSearchInput(e){
-    this.setState({
-      search: e.target.value,
-    })
-  }
-
-  handleToggleSearch (e) {
-    let badSearch = !this.state.badSearch
-    this.setState(Object.assign(this.state, {badSearch, }))
-  }
-
-  handleSubmitQuery(e){
-    e.preventDefault()
-    if(this.state.search.length > 2){
-    allCities(this.state.search).then(data => {
-      this.setState({
-        search:'',
-        badSearch: this.state.badSearch,
-        cities: data,
-      })
-    })
-  } else {
-    this.setState({
-      search:'',
-      badSearch: !this.state.badSearch,
-      cities:[]
-    })
-    alert('please enter more than 2 letters')
-  }
- }
-
+export default class Search extends Component {
   render(){
-    // let {handleSearchInput, handleSubmitQuery, query} = this.props
-
+    let {handleSearchInput, handleSubmitQuery, search} = this.props;
     return (
-      <div>
-      <form onSubmit={this.handleSubmitQuery}>
+      <form style={ style.searchBar } onSubmit={(e) => handleSubmitQuery(e)}>
         <div className="form-group col-sm-4 col-sm-offset-4">
           <input
-            onChange={this.handleSearchInput}
-            value={this.state.value}
+            onChange={(e) => handleSearchInput(e)}
+            value={search}
             className="form-control"
             type="text"
-            placeholder="Enter a City..." />
-        </div>
-        <div className="form-group col-sm-4 col-sm-offset-4">
-          <button
-            className="btn btn-block btn-primary"
-            type="submit">Search!</button>
+            placeholder='Enter a city...' />
         </div>
       </form>
-      <Cities cities={this.state.cities}/>
-      </div>
-    )
+    );
   }
 }
-
-export default Search

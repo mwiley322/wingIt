@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {createPost} from './Util';
-import {oneCity} from './Util';
-import {deletePost} from './Util';
-import {allCities} from './Util';
+import {createPost, oneCity, deletePost, searchAllCities} from '../Util';
 
 
 class Post extends Component {
@@ -22,7 +19,7 @@ class Post extends Component {
   }
 
   loadPostsFromServer(){
-    allCities('').then(res => {
+    searchAllCities('').then(res => {
       this.setState({
         posts:res
       })

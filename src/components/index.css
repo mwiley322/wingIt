@@ -4,79 +4,63 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: black;
 }
-.form-group{
-    text-align:center;
-    top:40vh;
-  }
-.navbar-default {
-  text-align:center;
-  margin:0;
-}
-.center-block{
+
+/*.center-block{
   text-align:center;
   top:40vh;
   position: relative;
+}*/
 
-}
-
-
-.row2{
+/*.row2{
   margin: 0;
+}*/
 
-}
-.container1{
+/*.container1{
   margin: 0;
-}
+}*/
 
-.container-fluid{
+/*.container-fluid{
   margin: 0;
-}
-.homeTitle{
-  text-align: center;
-  font-size: 48px;
-  margin: 0;
-  position: absolute;
-  top:130px;
-  right:50px;
-  left: 50px;
-  color: white;
+}*/
 
-}
-.col-xs-offset-2{
+/*.col-xs-offset-2{
   text-align:center;
   top:40vh;
-}
-.img-responsive{
+}*/
+
+/*.img-responsive{
   height: 30vh;
   width: 30vw;
-}
-.col-md-4 {
+}*/
+
+/*.col-md-4 {
   background: #aaaaaa;
 }
 .col-md-5{
   background: #aaaaaa;
-}
-.col-md-6{
+}*/
+/*.col-md-6{
   text-align:center;
   top:40vh;
   position: relative;
+}*/
 
-}
-.btn-primary{
+/*.btn-primary{
   background: #aaaaaa;
-}
+}*/
+/*
 img{
   background-position: center;
   width: 20vw;
   height: 30vh;
-}
+}*/
+
 .cityName{
   text-align: center;
 }
-.bg-lightgray{
 
+/*.bg-lightgray{
   position: fixed;
   height: 8vh;
     right: 0;
@@ -85,10 +69,12 @@ img{
     padding: 1rem;
     background-color: #efefef;
     text-align: center;
-}
+}*/
+
 .thumbnail{
-  width:75vw;
+  width:40vw;
 }
+
 .cityPop{
   text-align: center;
 }

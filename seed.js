@@ -64,7 +64,7 @@ var cities =[
   description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
   },
   {
-  name: 'Berkely',
+  name: 'Berkeley',
   imageUrl: 'https://whitneylab.berkeley.edu/images/berkeleycampus.jpg',
   Population: 116768,
   isAffordable: false,
@@ -170,7 +170,7 @@ var users = [
     currentCity:'London',
     aboutMe:'007',
     posts:'London drink'
-  },  
+  },
   {
     username: 'Tony Stark',
     password: '654',
@@ -179,7 +179,7 @@ var users = [
     currentCity:'Washington DC',
     aboutMe:'Genius, Billionaire, Playboy, Philanthropist',
     posts:['heros.','scotch']
-  }, 
+  },
   {
     username: 'Lamar',
     password: '6540',
@@ -188,7 +188,7 @@ var users = [
     currentCity:'San Francisco',
     aboutMe:'Hello, I am currently a 24 age full stack developer from Pittsburgh, PA now living in the Bay are.',
     posts:'sick'
-  }, 
+  },
   {
     username: 'Jesse',
     password: '6540',
