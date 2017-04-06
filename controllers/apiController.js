@@ -11,7 +11,7 @@ function index(req, res) {
         method: 'GET', path: '/api/users', description: 'Gets all users from database'
       },
       {
-        method: 'GET', path: '/api/users/:id', description: 'Goes to single user profile'
+        method: 'GET', path: '/api/users/:userId', description: 'Goes to single user profile'
       },
       {
         method: 'POST', path: '/api/users', description: 'Signs up a new user'
