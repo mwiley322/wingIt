@@ -23,10 +23,10 @@ class Search extends Component {
     })
   }
 
-  handleToggleSearch (e) {
-    let badSearch = !this.state.badSearch
-    this.setState(Object.assign(this.state, {badSearch, }))
-  }
+  // handleToggleSearch (e) {
+  //   let badSearch = !this.state.badSearch
+  //   this.setState(Object.assign(this.state, {badSearch, }))
+  // }
 
   handleSubmitQuery(e){
     e.preventDefault()

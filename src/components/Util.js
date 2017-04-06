@@ -42,6 +42,18 @@ export function createPost(post){
   })
 }
 
+export function editPost(id,post){
+  console.log(id,'post going to db');
+  var url = ('http://localhost:3001/api/posts/' + id);
+  return $.ajax({
+    method:"PUT",
+    data: post,
+    url: url,
+    success: function(res){
+      console.log('we edited', id);
+    }
+  })
+}
 export function deletePost(id){
   console.log("this is id in fx", id);
   var urlDelete = ('http://localhost:3001/api/posts/' + id);
