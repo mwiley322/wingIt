@@ -60,6 +60,8 @@ class Post extends Component {
       toBeUpdated: !this.state.toBeUpdated,
       uniqueId:id,
     })
+    window.scrollTo(0,document.body.scrollHeight);
+
   }
 
   handleEditSubmit(e){
@@ -184,7 +186,7 @@ class Post extends Component {
       <div>
       {results}
     <div>
-    <h2>Edit The post</h2>
+    <h2>Edit This post</h2>
       <form onSubmit={this.handleEditSubmit}>
         <input placeholder="Title" type="text"
           ref='titleEdit' onChange={this.handleEditChange}/>
