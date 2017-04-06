@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+// import {getIdToken} from './AuthService'
+// import token from './AuthService'
+//
+// console.log('from profile, we have id', token );
 
 import style from './index.css'
 
@@ -8,7 +12,17 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 export default class Profile extends Component {
-
+  reload(){
+    console.log("reloading");
+    location.reload();
+  }
+  // constructor(props){
+  //     super(props)
+  //     this.state = {
+  //       token : props.auth.getIdToken()
+  //     }
+  //     console.log(this.state.token, 'profile state of token');
+  // }
 
   render() {
     return (
@@ -21,7 +35,8 @@ export default class Profile extends Component {
                   <h3>Name</h3>
                   <h3>Date Joined</h3>
                   <h3><i>Current City</i></h3>
-                  <button type="button" class="btn btn-secondary">Edit Profile</button>
+                  <button type="button" className="btn btn-secondary">Edit Profile</button>
+                  <button type="button" >Delete Profile</button>
               </div>
 
 
@@ -30,11 +45,11 @@ export default class Profile extends Component {
                       book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
                       more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p><p>Pencil icon as a link:
           <a href="#">
-            <span class="glyphicon glyphicon-pencil"></span>
+            <span className="glyphicon glyphicon-pencil"></span>
           </a></p>
           <p>Trash icon as a link:
           <a href="#">
-            <span class="glyphicon glyphicon-trash"></span>
+            <span className="glyphicon glyphicon-trash"></span>
           </a>
         </p>
               </div>

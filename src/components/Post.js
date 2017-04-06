@@ -105,18 +105,10 @@ class Post extends Component {
     })
   }
 
-  // componentWillReceiveProps(cityVar){
-  //   this.setState({
-  //     city:cityVar
-  //   })
-  //   return this.state.city;
-  //   console.log(this.state.city,'<-comprecieveprops state here');
-  // }
 
   render() {
     let posts= this.state.posts
     let results= posts.map( (post)=> {
-
     let authorVarName= post.author
     let authorVarPic= post.authorImg
     return (

@@ -1,9 +1,17 @@
 import $ from 'jquery'
 
 export function allCities (search) {
-  var urlAll = ('http://localhost:3001/api/cities/' + search);
+  var urlAll = ('http://localhost:3001/api/cities/'+ search);
   return $.getJSON(urlAll).then(function(res) {
     console.log("city response from db", res);
+    return res;
+  })
+}
+
+export function getCities () {
+  var url = ('http://localhost:3001/api/cities/');
+  return $.getJSON(url).then(function(res) {
+    console.log("all cities from db", res);
     return res;
   })
 }
@@ -22,6 +30,14 @@ export function createUser(data) {
   $.post(url, data, function(res) {
     console.log('posted response from DB: ', res);
   });
+}
+//EXAMPLE FOR PROFILE
+export function getUser(id) {
+  var url =('http://localhost:3001/api/user/' + id);
+  return $.getJSON(url).then(function(res) {
+    console.log("we got this user from db", res);
+    return res;
+  })
 }
 
 export function checkForExistingUser (id) {
