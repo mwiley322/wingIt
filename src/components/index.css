@@ -97,3 +97,11 @@ img{
   background-color: white;
   display: inline-block!important;
 }
+
+.col-md-6 {
+  background-color: white;
+}
+
+.editComment {
+  margin-left: 30vw;
+}
