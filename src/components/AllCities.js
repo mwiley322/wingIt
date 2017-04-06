@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 // import Nav from './Nav';
 import style from './index.css'
 import {getCities} from './Util';
+import {allCities} from './Util';
 // import { isLoggedIn } from './AuthService';
+
 
 class AllCities extends Component {
 
@@ -13,9 +15,17 @@ class AllCities extends Component {
       cities: []
       }
   }
-  componentWillUnmount(){
-    location.reload();
-  }
+  // componentWillUnmount(){
+  //   location.reload();
+  // }
+  OneCitySelect(name){
+    console.log('clicked select for name', name);
+    allCities(name).then(data => {
+      this.setState({
+        cities: data
+      })
+  })
+}
   componentDidMount(){
     getCities().then(data => {
       console.log("post data is: ", data)
@@ -41,6 +51,7 @@ class AllCities extends Component {
                          <div className="ratings" key={city._id}>
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
+                             <button onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
 
                              <p>
                                  <span className="glyphicon glyphicon-star"></span>

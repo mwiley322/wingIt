@@ -8,10 +8,9 @@ import Footer from './Footer.js';
 
 
 class Main extends Component {
-  reload(){
-    console.log("reloading");
-    location.reload();
-  }
+  // componentWillUnmount(){
+  //   location.reload();
+  // }
   render() {
     return (
       <div className="mainPage">

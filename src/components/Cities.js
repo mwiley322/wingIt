@@ -18,7 +18,9 @@ class Cities extends Component {
 
       }
   }
-
+  componentWillUnmount(){
+    location.reload();
+  }
 
   getCityProfile(name){
     console.log("this is og state in cities", this.props.cities);
