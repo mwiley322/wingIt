@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
       name: String,
       imageUrl: String,
       Population: Number,
-      isAffordable: Boolean
+      isAffordable: Boolean,
+      description: String,
     });
 
     module.exports = mongoose.model('City', CitySchema);
