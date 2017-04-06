@@ -4,7 +4,6 @@ import Search from './Search.js';
 import { Link } from 'react-router-dom';
 import { isLoggedIn } from './AuthService';
 import './index.css';
-import Footer from './Footer.js';
 
 
 class Main extends Component {
@@ -14,7 +13,6 @@ class Main extends Component {
         <Nav/>
         <h1 className="homeTitle">Wing It Travel App<span className="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></h1>
         <Search/>
-        <Footer />
       </div>
     )
   }
@@ -30,3 +28,12 @@ class Main extends Component {
 // </div>
 
 export default Main;
+
+
+
+
+
+// import Footer from './Footer.js';
+
+
+// <Footer />

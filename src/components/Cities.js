@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import Nav from './Nav';
 import style from './index.css'
@@ -29,7 +29,9 @@ class Cities extends Component {
       let cities=this.props.cities
       let results=cities.map((city) => {
         return (
-          <div key={city._id} className="col-md-9">
+          <div className="container">
+          <div key={city._id} className="col-md-9" id="col9">
+                  <div className="thumbDiv">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>
@@ -52,14 +54,14 @@ class Cities extends Component {
                                  4.0 stars
                              </p>
 
-
+</div>
                          </div>
                      </div>
-
+</div>
         )
      })
       return (
-        <div>
+        <div class="postResults">
         {results}
         </div>
       )
