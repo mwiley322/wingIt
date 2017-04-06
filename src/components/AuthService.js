@@ -35,7 +35,10 @@ lock.on('authenticated', authResult => {
     };
     createUser(data);
     token = data;
-    console.log(token ,'id token saved in gloabl');
+    // console.log(token ,'id token saved in gloabl');
+    setProfile(token);
+    console.log(getProfile(),"called get profile");
+
     // this.setState({
     //   data:data
     // })
@@ -53,6 +56,21 @@ export function login(options) {
     }
   }
 }
+
+  export function setProfile(profile) {
+    // Saves profile data to local storage
+    localStorage.setItem('profile', JSON.stringify(profile))
+    // Triggers profile_updated event to update the UI
+    // this.emit('profile_updated', profile)
+    console.log("were in set profile");
+  }
+
+  export function getProfile() {
+    // Retrieves the profile data from local storage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
+
 
 export function logout() {
   clearIdToken();

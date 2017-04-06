@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-// import {getIdToken} from './AuthService'
-// import token from './AuthService'
-//
-// console.log('from profile, we have id', token );
-
+import {getProfile} from './AuthService'
 import style from './index.css'
 
 
@@ -12,30 +8,30 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 
 export default class Profile extends Component {
-  reload(){
-    console.log("reloading");
-    location.reload();
-  }
-  // constructor(props){
-  //     super(props)
-  //     this.state = {
-  //       token : props.auth.getIdToken()
-  //     }
-  //     console.log(this.state.token, 'profile state of token');
-  // }
+
+
+    constructor(props){
+      super(props)
+      this.state = {
+        user: getProfile()
+      }
+      console.log("I am user", this.state.user);
+    }
+
 
   render() {
+    let user = this.state.user
     return (
       <div className="container" id="ProfCont">
         <div className="col-md-9">
           <div className="row">
 
               <div className="col-md-3 pull-left">
-                  <img src="#" className="img-responsive" alt="userImage"></img>
-                  <h3>Name</h3>
-                  <h3>Date Joined</h3>
-                  <h3><i>Current City</i></h3>
-                  <button type="button" className="btn btn-secondary">Edit Profile</button>
+                  <img src={user.imageUrl} className="img-responsive" alt="userImage"></img>
+                  <h3>Name: {user.username}</h3>
+                  <h3>Date Joined: {user.dateJoined}</h3>
+                  <h3><i>Current City: Blank</i></h3>
+                  <button type="button" class="btn btn-secondary">Edit Profile</button>
                   <button type="button" >Delete Profile</button>
               </div>
 
@@ -45,11 +41,11 @@ export default class Profile extends Component {
                       book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
                       more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p><p>Pencil icon as a link:
           <a href="#">
-            <span className="glyphicon glyphicon-pencil"></span>
+            <span class="glyphicon glyphicon-pencil"></span>
           </a></p>
           <p>Trash icon as a link:
           <a href="#">
-            <span className="glyphicon glyphicon-trash"></span>
+            <span class="glyphicon glyphicon-trash"></span>
           </a>
         </p>
               </div>
