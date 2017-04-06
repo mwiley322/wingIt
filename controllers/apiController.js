@@ -29,7 +29,7 @@ function index(req, res) {
         method: 'GET', path: '/api/cities/:cityName', description: 'Gets all cities based on parameters'
       },
       {
-        method: 'GET', path: '/api/cities/:cityId/posts', description: 'Gets all post for that city'
+        method: 'GET', path: '/api/cities/:cityName/posts', description: 'Gets all post for that city'
       },
       {
         method: 'GET', path: '/api/posts', description: 'Gets all posts from the database'

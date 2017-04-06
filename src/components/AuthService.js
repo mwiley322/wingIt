@@ -1,6 +1,6 @@
-import Auth0Lock from 'auth0-lock';
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
+import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
 import {createUser, checkForExistingUser} from './Util';
 

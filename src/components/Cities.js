@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import style from './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
+import Search from './Search'
 // import { isLoggedIn } from './AuthService';
 
 class Cities extends Component {
@@ -12,15 +13,23 @@ class Cities extends Component {
     super(props)
     this.state = {
       posts: [],
-      showPosts: false
-    }
+      showPosts: false,
+      cities: []
+
+      }
   }
 
-  getCityProfile(id){
-    oneCity(id).then(data => {
+
+  getCityProfile(name){
+    console.log("this is og state in cities", this.props.cities);
+    // console.log("CITYNAME STATE", this.state.cityName);
+    console.log("FOUND DA NAME", this.state.cities);
+    oneCity(name).then(data => {
+      console.log("post data is: ", data)
       this.setState({
         posts: data,
-        showPosts: !this.state.showPosts
+        showPosts: !this.state.showPosts,
+        // cityName:this.props.cities[0].name
       })
     })
   }
@@ -28,6 +37,7 @@ class Cities extends Component {
     render() {
       let cities=this.props.cities
       let results=cities.map((city) => {
+        console.log("city is", city)
         return (
           <div key={city._id} className="col-md-9">
                      <div className="thumbnail">
@@ -41,8 +51,8 @@ class Cities extends Component {
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
 
-        <button onClick={this.getCityProfile.bind(this, city._id)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
-          {this.state.showPosts ? <Post pollInterval={1000} posts={this.state.posts} /> : null}
+        <button onClick={this.getCityProfile.bind(this, city.name)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
+          {this.state.showPosts ? <Post pollInterval={1000} posts={this.state.posts} cities={city}/> : null}
                              <p>
                                  <span className="glyphicon glyphicon-star"></span>
                                  <span className="glyphicon glyphicon-star"></span>
