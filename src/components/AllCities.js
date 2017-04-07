@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import Nav from './Nav';
 import style from './index.css'
 import {getCities} from './Util';
 import {allCities} from './Util';
 import {oneCity} from './Util';
 import Post from './Post';
 import Cities from './Cities';
-// import { isLoggedIn } from './AuthService';
 
 
 class AllCities extends Component {
-
-
 
   constructor(props){
     super(props)
@@ -22,6 +17,7 @@ class AllCities extends Component {
       posts: [],
       }
   }
+
   OneCitySelect(name){
     console.log('clicked select for name', name);
     allCities(name).then(data => {
@@ -29,6 +25,7 @@ class AllCities extends Component {
         city: data
       })
   })
+
   oneCity(name).then(data => {
     this.setState({
       posts: data
@@ -52,7 +49,7 @@ class AllCities extends Component {
       let cities=this.state.cities
       let results=cities.map((city) => {
         return (
-          <div key={city._id} className="col-md-9">
+          <div key={city._id} className="col-md-9 seeAllCities">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>
@@ -63,7 +60,7 @@ class AllCities extends Component {
                          <div className="ratings" key={city._id}>
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
-                             <button onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
+                             <button id='seeMoreBtn' onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
 
 
                              <p>

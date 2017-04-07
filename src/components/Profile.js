@@ -4,10 +4,10 @@ import {getUserPosts} from './Util';
 import style from './index.css';
 import ProfPosts from './ProfPosts';
 
-
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
+import {createUser, checkForExisitingUser} from './Util.js';
 
 export default class Profile extends Component {
 
@@ -19,7 +19,6 @@ export default class Profile extends Component {
         posts: [],
         clicked:false
       }
-      console.log("I am user", this.state.user);
     }
     GetPosts(name){
       getUserPosts(name).then(data => {

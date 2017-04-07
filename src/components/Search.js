@@ -11,22 +11,16 @@ class Search extends Component {
       search:'',
       badSearch:false,
       cities: []
-        }
+    }
     this.handleSearchInput = this.handleSearchInput.bind(this)
     this.handleSubmitQuery = this.handleSubmitQuery.bind(this)
   }
 
   handleSearchInput(e){
-    console.log("search input pressed");
     this.setState({
       search: e.target.value,
     })
   }
-
-  // handleToggleSearch (e) {
-  //   let badSearch = !this.state.badSearch
-  //   this.setState(Object.assign(this.state, {badSearch, }))
-  // }
 
   handleSubmitQuery(e){
     e.preventDefault()
@@ -37,23 +31,22 @@ class Search extends Component {
         badSearch: this.state.badSearch,
         cities: data
       })
-      console.log("this is cityName from search", this.state.cities);
     })
-  } else {
-    this.setState({
-      search:'',
-      badSearch: !this.state.badSearch,
-      cities:[]
-    })
-    alert('please enter more than 2 letters')
-  }
+  // } else {
+  //   this.setState({
+  //     search:'',
+  //     badSearch: !this.state.badSearch,
+  //     cities:[]
+  //   })
+  //   alert('please enter more than 2 letters')
+  // }
+ }
  }
 
   render(){
-    console.log("from search: ",this.state.cities)
-    // let {handleSearchInput, handleSubmitQuery, query} = this.props
+
     return (
-      <div>
+      <div id='searchBar'>
       <form onSubmit={this.handleSubmitQuery}>
         <div className="form-group col-sm-4 col-sm-offset-4">
           <input
@@ -65,6 +58,7 @@ class Search extends Component {
         </div>
         <div className="form-group col-sm-4 col-sm-offset-4">
           <button
+            id='searchSubmit'
             className="btn btn-block btn-primary"
             type="submit">Search!</button>
         </div>
@@ -72,6 +66,7 @@ class Search extends Component {
       <Cities cities={this.state.cities}/>
       </div>
     )
+
   }
 
 }
