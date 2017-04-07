@@ -159,7 +159,7 @@ class Post extends Component {
         <br/>
           <div>
           <h2>Write a post</h2>
-            <form onSubmit={this.handlePostSubmit}>
+            <form className='col-xs-4' onSubmit={this.handlePostSubmit}>
               <input placeholder="Title" type="text"
                 ref='title' onChange={this.handleContentChange}/>
               <br/>

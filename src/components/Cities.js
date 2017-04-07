@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import Nav from './Nav';
-import style from './index.css'
+import './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
-import Search from './Search'
-// import { isLoggedIn } from './AuthService';
+import style from './style';
 
 class Cities extends Component {
 
@@ -41,7 +38,7 @@ class Cities extends Component {
       let results=cities.map((city) => {
         console.log("city is", city)
         return (
-          <div key={city._id} className="col-md-9">
+          <div key={city._id} className="col-md-12">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>

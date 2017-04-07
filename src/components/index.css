@@ -10,35 +10,23 @@ body {
     text-align:center;
     top:40vh;
   }
-.navbar-default {
-  text-align:center;
-  margin:0;
-}
+  
 .center-block{
   text-align:center;
   top:40vh;
   position: relative;
-
 }
 
-
-.row2{
-  margin: 0;
-
-}
 .container1{
   margin: 0;
 }
 
-.container-fluid{
-  margin: 0;
-}
 .homeTitle{
   text-align: center;
   font-size: 48px;
   margin: 0;
   position: absolute;
-  top:130px;
+  top:75px;
   right:50px;
   left: 50px;
   color: white;
@@ -76,15 +64,14 @@ img{
   text-align: center;
 }
 .bg-lightgray{
-
   position: fixed;
   height: 8vh;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
 .thumbnail{
   width:75vw;

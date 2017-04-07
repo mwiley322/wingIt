@@ -3,9 +3,6 @@ import {getProfile} from './AuthService'
 import style from './index.css'
 
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-
 
 export default class Profile extends Component {
 
