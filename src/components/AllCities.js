@@ -13,9 +13,7 @@ import Cities from './Cities';
 class AllCities extends Component {
 
 
-componentWillUpdate(){
-  return false
-}
+
   constructor(props){
     super(props)
     this.state = {
