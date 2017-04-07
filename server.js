@@ -19,10 +19,7 @@ app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const authCheck = jwt({
-  secret: 'ZBkmrcMB84hMAk1auWxS-mKo5S_lU7YM-Q2p_rBvIlkC6AvefMTYXypDKn9__eLM',
-  audience: 'e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL'
-});
+
 
 // Prevent CORS errors
 app.use(function(req, res, next) {

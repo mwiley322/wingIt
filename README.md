@@ -1,13 +1,12 @@
-# Wingit - Travel App
+# WingIt - Travel App
 
-Wingit is a MERN stack application that lets users share their travel experiences with one another!
+WingIt is a MERN stack application that lets users share their travel experiences with one another!
 
 ## User Stories
 1. A user can be authorized with login and view their profile page, and can log out to no longer have that access.
 2. A user can view a city page with city information and attached posts.
 3. A user can write a post about a city to share with other users.
-4. A user can write a comment on an existing post to share with others.
-5. A user can search through cities to view that specific city page and associated posts.
+4. A user can search through cities to view that specific city page and associated posts.
 
 
 ## Technologies
@@ -17,21 +16,25 @@ Wingit is a MERN stack application that lets users share their travel experience
 - MongoDB
 - JavaScript
 - React.js
-- Axios
-- Marked
+- Auth0
+- JQuery
 - Foreman
 - CSS
 - HTML
-- Add-ons: Bootstrap
+- Bootstrap
 
-
-## Wireframes
---
 ### Original wireframes provided by the client
 ![WingIt wireframes](http://i.imgur.com/C0oOLmZ.png)
 
 
 ## Features to be added later
+
+1. A user will be able to write a comment on an existing post to share with others.
+2. A user will be able to edit their profile.
+3. Form validation
+4. Error handling for CRUD
+5. Cities logged from external API for more city options
+6. Integrated Google Maps
 
 
 
@@ -48,5 +51,3 @@ Wingit is a MERN stack application that lets users share their travel experience
 
 
 - [Trello Board](https://trello.com/b/XQtdhnzP/wingit-project)
-
-- [Heroku](#)
