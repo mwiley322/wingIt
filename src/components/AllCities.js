@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import style from './index.css'
-import {getCities} from './Util';
-import {allCities} from './Util';
-import {oneCity} from './Util';
+import {getCities, allCities, oneCity } from './Util';
 import Post from './Post';
 import Cities from './Cities';
 
@@ -61,8 +59,6 @@ class AllCities extends Component {
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
                              <button id='seeMoreBtn' className="btn btn-info" onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
-
-
                              <p>
                                  <span className="glyphicon glyphicon-star"></span>
                                  <span className="glyphicon glyphicon-star"></span>

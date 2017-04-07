@@ -124,8 +124,8 @@ export default class Post extends Component {
                 <p>
                   <i className="icon-calendar"></i> Sept 16, 2012
                 </p>
-                <button onClick={this.handleEditSubmitForm.bind(this, post._id, post.author)}>edit</button>
-                <button onClick={this.handleDelete.bind(this, post._id, post.author)}>Delete</button>
+                <button className="btn btn-xs btn-default" onClick={this.handleEditSubmitForm.bind(this, post._id, post.author)}>edit</button>
+                <button className="btn btn-xs btn-danger" onClick={this.handleDelete.bind(this, post._id, post.author)}>Delete</button>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default class Post extends Component {
                 <input placeholder="Title" type="text" ref='title' onChange={this.handleContentChange}/>
                 <br/>
                 <input placeholder="Enter thoughts here" type="text" ref='content' onChange={this.handleContentChange}/>
-                <button type='submit'>Post</button>
+                <button className="btn btn-xs btn-success" type='submit'>Post</button>
               </form>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default class Post extends Component {
                   <input placeholder="Title" type="text" ref='titleEdit' onChange={this.handleEditChange}/>
                   <br/>
                   <input placeholder="Enter thoughts here" type="text" ref='contentEdit' onChange={this.handleEditChange}/>
-                  <button type='submit'>Save</button>
+                  <button className="btn btn-xs btn-success" type='submit'>Save</button>
                 </form>
               </div>
             </div>

@@ -39,7 +39,7 @@ class Cities extends Component {
                      <h4 className="cityPop">Population:{city.Population}</h4>
                       <img src={city.imageUrl} style={style.cityImage} alt={city.name} className="img-responsive"/>
                  </div>
-                 <h6>Description: {city.description}</h6>
+                 <h6>{city.description}</h6>
                  <div className="ratings" key={city._id}>
               </div>
               <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
