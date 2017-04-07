@@ -46,7 +46,7 @@ class AllCities extends Component {
       let cities=this.state.cities
       let results=cities.map((city) => {
         return (
-          <div key={city._id} className="col-md-9">
+          <div key={city._id} className="col-md-9 seeAllCities">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>
@@ -57,7 +57,7 @@ class AllCities extends Component {
                          <div className="ratings" key={city._id}>
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
-                             <button onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
+                             <button id='seeMoreBtn' onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
 
 
                              <p>

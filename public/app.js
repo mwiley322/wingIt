@@ -9,9 +9,6 @@ $(document).ready(function() {
   $('#exploreCities').on('click', function() {
     $('#searchBar').hide();
     $('#citySearchResult').hide();
-  });
-  $('#logoutBtn').on('click', function() {
-    $('#searchBar').hide();
-    $('#ProfCont').hide();
+    $('#postResults').hide();
   });
 });
