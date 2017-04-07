@@ -31,7 +31,8 @@ class Post extends Component {
 
   }
 
-
+  // componentDidUpdate(){
+  // }
   loadPostsFromServer(){
     oneCity(this.state.city).then(res=> {
       console.log("res is ", res);
@@ -41,7 +42,9 @@ class Post extends Component {
       console.log("working from loadpsotfromserver", this.state.posts);
     })
   }
-
+  //   componentWillUnmount(){
+  //     setInterval(0);
+  //   }
   componentDidMount(){
     console.log("the city in DidMount are", this.state.city)
     this.loadPostsFromServer();
@@ -79,6 +82,7 @@ class Post extends Component {
     this.setState({
       content: this.refs.contentEdit.value,
       title: this.refs.titleEdit.value,
+      // author:this.refs.usernameEdit.value,
       city:this.state.city
     })
 

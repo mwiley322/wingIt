@@ -52,7 +52,6 @@ class Search extends Component {
   render(){
     console.log("from search: ",this.state.cities)
     // let {handleSearchInput, handleSubmitQuery, query} = this.props
-
     return (
       <div>
       <form onSubmit={this.handleSubmitQuery}>
@@ -74,6 +73,7 @@ class Search extends Component {
       </div>
     )
   }
+
 }
 
 export default Search
