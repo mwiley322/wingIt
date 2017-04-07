@@ -4,6 +4,7 @@ import {oneCity} from './Util';
 import {deletePost} from './Util';
 import {allCities} from './Util';
 import {editPost} from './Util';
+import {getProfile} from './AuthService'
 import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY= 'id_token';
 
@@ -19,7 +20,8 @@ class Post extends Component {
       author:'',
       uniqueId:'',
       posts:this.props.posts,
-      toBeUpdated:false
+      toBeUpdated:false,
+      user: getProfile()
     }
     this.handlePostSubmit= this.handlePostSubmit.bind(this);
     this.handleContentChange= this.handleContentChange.bind(this);
@@ -29,8 +31,7 @@ class Post extends Component {
 
   }
 
-  // componentDidUpdate(){
-  // }
+
   loadPostsFromServer(){
     oneCity(this.state.city).then(res=> {
       console.log("res is ", res);
@@ -40,9 +41,7 @@ class Post extends Component {
       console.log("working from loadpsotfromserver", this.state.posts);
     })
   }
-  //   componentWillUnmount(){
-  //     setInterval(0);
-  //   }
+
   componentDidMount(){
     console.log("the city in DidMount are", this.state.city)
     this.loadPostsFromServer();
@@ -80,7 +79,6 @@ class Post extends Component {
     this.setState({
       content: this.refs.contentEdit.value,
       title: this.refs.titleEdit.value,
-      // author:this.refs.usernameEdit.value,
       city:this.state.city
     })
 
@@ -93,14 +91,13 @@ class Post extends Component {
     createPost(post)
       this.refs.content.value='';
       this.refs.title.value='';
-      this.refs.username.value='';
   }
 
   handleContentChange(e){
     this.setState({
       content: this.refs.content.value,
       title: this.refs.title.value,
-      author:this.refs.username.value,
+      author:this.state.user.username,
       city:this.state.city
     })
   }
@@ -165,9 +162,6 @@ class Post extends Component {
               <br/>
               <input placeholder="Enter thoughts here" type="text"
                 ref='content' onChange={this.handleContentChange}/>
-                <br/>
-                  <input placeholder="Enter username" type="text"
-                    ref='username' onChange={this.handleContentChange}/>
               <button type='submit'>Post</button>
             </form>
         </div>
