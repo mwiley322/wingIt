@@ -16,6 +16,7 @@ class AllCities extends Component {
       posts: [],
       }
   }
+
   OneCitySelect(name){
     console.log('clicked select for name', name);
     allCities(name).then(data => {
@@ -23,6 +24,7 @@ class AllCities extends Component {
         city: data
       })
   })
+  
   oneCity(name).then(data => {
     this.setState({
       posts: data

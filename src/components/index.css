@@ -10,7 +10,7 @@ body {
     text-align:center;
     top:40vh;
   }
-  
+
 .center-block{
   text-align:center;
   top:40vh;
@@ -52,7 +52,6 @@ body {
   margin-top: 8vh;
 }*/
 .img-responsive{
-  height: 40vh;
   width: 50vw;
   margin: auto;
 }
