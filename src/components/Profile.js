@@ -55,7 +55,7 @@ export default class Profile extends Component {
                   <h3>Name: {user.username}</h3>
                   <h3>About Me: {user.description}</h3>
                   <h3> Email: {user.email}</h3>
-                  <h3><i>Current City: Blank</i></h3>
+                  <h3><i>Current City: Coming soon...</i></h3>
                   <h5>Date Joined: {user.dateJoined}</h5>
                   <button type="button" className="btn btn-primary" onClick={this.handleUserEdit.bind(this, user.username)}>Edit Profile</button>
                   <br/>
