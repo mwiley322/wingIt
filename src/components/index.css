@@ -20,9 +20,8 @@ body {
 .container1{
   margin: 0;
 }
-#rowPost{
 
-}
+
 .thumbDiv{
   margin-left: 13vw;
   padding: auto;
@@ -40,27 +39,14 @@ body {
   right:50px;
   left: 50px;
   color: white;
-
+  text-shadow: 2px 2px 1px #203541;
 }
-/*.col-xs-offset-2{
-  text-align:center;
-  top:40vh;
-}*/
 
-/*#col9{
-  margin: auto;
-  margin-top: 8vh;
-}*/
 .img-responsive{
   width: 50vw;
   margin: auto;
 }
-/*.col-md-4 {
-  background: #aaaaaa;
-}
-.col-md-5{
-  background: #aaaaaa;
-}*/
+
 .col-md-6{
   text-align:center;
   top:40vh;

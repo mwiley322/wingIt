@@ -15,13 +15,16 @@ export default class Post extends Component {
       uniqueId:'',
       posts:this.props.posts,
       toBeUpdated:false,
-      user: getProfile()
+      user: getProfile(),
+      change: false,
     }
     this.handlePostSubmit= this.handlePostSubmit.bind(this);
     this.handleContentChange= this.handleContentChange.bind(this);
     this.loadPostsFromServer= this.loadPostsFromServer.bind(this);
     this.handleEditSubmit= this.handleEditSubmit.bind(this);
     this.handleEditChange= this.handleEditChange.bind(this);
+
+
   }
 
   loadPostsFromServer(){
@@ -37,18 +40,24 @@ export default class Post extends Component {
     setInterval(this.loadPostsFromServer, this.props.pollInterval)
   }
 
-  handleDelete(id){
+  handleDelete(id,author){
+    if(this.state.user.username !== author){
+      alert('WARNING! NOT AUTHORIZED.DONT TOUCH')
+    } else{
     deletePost(id);
   }
+}
 
-  handleEditSubmitForm(id,e){
-    e.preventDefault();
+  handleEditSubmitForm(id,author){
+    if(this.state.user.username !== author){
+      alert('WARNING! NOT AUTHORIZED.DONT TOUCH')
+    } else{
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
       uniqueId:id
     });
-    window.scrollTo(0,document.body.scrollHeight);
   }
+}
 
   handleEditSubmit(e){
     e.preventDefault();
@@ -58,6 +67,7 @@ export default class Post extends Component {
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
     });
+
   }
 
   handleEditChange(e){
@@ -114,8 +124,8 @@ export default class Post extends Component {
                 <p>
                   <i className="icon-calendar"></i> Sept 16, 2012
                 </p>
-                <button onClick={this.handleEditSubmitForm.bind(this, post._id)}>edit</button>
-                <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
+                <button onClick={this.handleEditSubmitForm.bind(this, post._id, post.author)}>edit</button>
+                <button onClick={this.handleDelete.bind(this, post._id, post.author)}>Delete</button>
               </div>
             </div>
           </div>
