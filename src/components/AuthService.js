@@ -2,6 +2,7 @@ import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
+const token = 'data';
 import {createUser, checkForExistingUser} from './Util';
 
 var options = {auth: {
@@ -12,6 +13,13 @@ var options = {auth: {
 
 const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', options);
 
+    // class Auth extends Component{
+    //   constructor(props){
+    //     super()
+    //     this.state= {
+    //       data:'',
+    //     }
+    //   }
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
@@ -26,9 +34,19 @@ lock.on('authenticated', authResult => {
       email: authResult.idTokenPayload.email
     };
     createUser(data);
+    token = data;
+    // console.log(token ,'id token saved in gloabl');
+    setProfile(token);
+    console.log(getProfile(),"called get profile");
+
+    // this.setState({
+    //   data:data
+    // })
+    // console.log("in authservice ", this.state.data);
   // }
-  browserHistory.push('/profile');
+  // browserHistory.push('/profile');
 });
+
 
 export function login(options) {
   lock.show(options);
@@ -38,6 +56,21 @@ export function login(options) {
     }
   }
 }
+
+  export function setProfile(profile) {
+    // Saves profile data to local storage
+    localStorage.setItem('profile', JSON.stringify(profile))
+    // Triggers profile_updated event to update the UI
+    // this.emit('profile_updated', profile)
+    console.log("were in set profile");
+  }
+
+  export function getProfile() {
+    // Retrieves the profile data from local storage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
+
 
 export function logout() {
   clearIdToken();
@@ -84,3 +117,7 @@ function isTokenExpired(token) {
   const expirationDate = getTokenExpirationDate(token);
   return expirationDate < new Date();
 }
+
+// module.exports = {
+//   token : token
+// }

@@ -1,49 +1,46 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import Nav from './Nav';
 import style from './index.css'
-import {oneCity} from './Util';
-import Post from './Post';
-import Search from './Search'
+import {getCities} from './Util';
+import {allCities} from './Util';
 // import { isLoggedIn } from './AuthService';
 
-class Cities extends Component {
+
+class AllCities extends Component {
 
   constructor(props){
     super(props)
     this.state = {
-      posts: [],
-      showPosts: false,
       cities: []
-
       }
   }
-  componentWillUnmount(){
-    location.reload();
-  }
-
-  getCityProfile(name){
-    console.log("this is og state in cities", this.props.cities);
-    // console.log("CITYNAME STATE", this.state.cityName);
-    console.log("FOUND DA NAME", this.state.cities);
-    oneCity(name).then(data => {
+  // componentWillUnmount(){
+  //   location.reload();
+  // }
+  OneCitySelect(name){
+    console.log('clicked select for name', name);
+    allCities(name).then(data => {
+      this.setState({
+        cities: data
+      })
+  })
+}
+  componentDidMount(){
+    getCities().then(data => {
       console.log("post data is: ", data)
       this.setState({
-        posts: data,
-        showPosts: !this.state.showPosts,
-        // cityName:this.props.cities[0].name
+        cities: data,
       })
     })
   }
 
     render() {
-      let cities=this.props.cities
+      let cities=this.state.cities
       let results=cities.map((city) => {
         console.log("city is", city)
         return (
-          <div className="container">
-          <div key={city._id} className="col-md-9" id="col9">
-                  <div className="thumbDiv">
+          <div key={city._id} className="col-md-9">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>
@@ -54,9 +51,8 @@ class Cities extends Component {
                          <div className="ratings" key={city._id}>
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
+                             <button onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
 
-        <button onClick={this.getCityProfile.bind(this, city.name)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
-          {this.state.showPosts ? <Post pollInterval={1000} posts={this.state.posts} cities={city}/> : null}
                              <p>
                                  <span className="glyphicon glyphicon-star"></span>
                                  <span className="glyphicon glyphicon-star"></span>
@@ -65,18 +61,17 @@ class Cities extends Component {
                                  <span className="glyphicon glyphicon-star-empty"></span>
                                  4.0 stars
                              </p>
-
                          </div>
                      </div>
-</div>
+
         )
      })
       return (
-        <div class="postResults">
+        <div>
         {results}
         </div>
       )
    }
 }
 
-export default Cities;
+export default AllCities;

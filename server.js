@@ -60,6 +60,7 @@ app.delete('/api/posts/:postId', controllers.posts.destroy);
 //USER CONTROLLERS
 app.get('/api/users', controllers.users.index);
 app.get('/api/users/:userId', controllers.users.show);
+app.get('/api/user/:userId', controllers.users.showOne)
 app.post('/api/users', controllers.users.create);
 app.put('/api/users/:userId', controllers.users.update);
 app.delete('/api/users/:userId', controllers.users.destroy);

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import {createPost} from './Util';
-import {oneCity} from './Util';
-import {deletePost} from './Util';
-import {allCities} from './Util';
-import {editPost} from './Util';
 import Auth0Lock from 'auth0-lock';
+
+
+import {createPost, oneCity, deletePost, allCities, editPost} from './Util';
+
+
 const ID_TOKEN_KEY= 'id_token';
 
-class Post extends Component {
+export default class Post extends Component {
 
   constructor(props){
     console.log("props are: ", props)
@@ -105,58 +105,49 @@ class Post extends Component {
     })
   }
 
-  // componentWillReceiveProps(cityVar){
-  //   this.setState({
-  //     city:cityVar
-  //   })
-  //   return this.state.city;
-  //   console.log(this.state.city,'<-comprecieveprops state here');
-  // }
 
   render() {
     let posts= this.state.posts
     let results= posts.map( (post)=> {
-
     let authorVarName= post.author
     let authorVarPic= post.authorImg
     return (
 
-    <div className="container" key={post._id}>
-        <div className="span12">
-        <div className="row">
-          <div className="span8">
+   <div className="container" key={post._id} id="postContainer">
 
-          </div>
-        </div>
-        <div className="row">
-          <div className="span2">
-            <a href="#" className="thumbnail">
-              <div className="col-xs-2">
-                <h5>{post.author}</h5>
-                <img src={post.authorImg} className="img-responsive" alt="user"/>
-              </div>
-            </a>
-          </div>
-          <br />
-          <h5><strong>Title:&nbsp;{post.title}</strong></h5>
-          <div className="span10">
-            <p className="postContent"></p>
+                    <div className="col-xs-7 postBox">
+                        <div className="row">
+                            <div className="col-xs-2">
+                                <h5>{post.author}</h5>
+                                <img src={post.authorImg} className="img-responsive" alt="user"/>
+                                <div className="row">
+                                    <p>
+                                        <i className="icon-calendar"></i>
+                                        Sept 16, 2012
+                                    </p>
+                                    <button onClick={this.handlePostEdit.bind(this, post._id)}>edit</button>
+                                    <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
+                                </div>
+                            </div>
+                            <div className="col-xs-5">
+                                <h5>
+                                    <strong>Title:&nbsp;{post.title}</strong>
+                                </h5>
 
-             <h5> <strong>Comment: &nbsp;</strong>{post.content}</h5>
-            <p><a className="btn" href="#">Comment</a></p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="span8">
-                <p>
-               <i className="icon-calendar"></i> Sept 16, 2012
-              </p>
-              <button onClick={this.handleEditSubmitForm.bind(this, post._id)}>edit</button>
-              <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
-            </div>
-          </div>
-        </div>
-    </div>
+                                <p className="postContent"></p>
+
+                                <h5>
+                                    <strong>Comment: &nbsp;</strong>{post.content}</h5>
+                                <p>
+                                    <a className="btn" href="#">Comment</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
         )
       })
@@ -200,6 +191,6 @@ class Post extends Component {
 )
   }
   }
+
 }
 
-export default Post;

@@ -22,6 +22,17 @@ function show(req,res) {
   });
 }
 
+function showOne(req,res) {
+  var id = req.params.userId;
+  console.log('THIS IS MY REQUEST ', id);
+  db.User.findById(id, function(err, foundUser){
+    if(err){
+      console.log("Error getting that user: ", err);
+    }
+    res.json(foundUser);
+  });
+}
+
 
 // POST /api/users
 function create(req, res) {
@@ -64,6 +75,7 @@ function destroy(req, res) {
 module.exports = {
   index:index,
   show:show,
+  showOne:showOne,
   create: create,
   update: update,
   destroy: destroy
