@@ -10,39 +10,16 @@ body {
     text-align:center;
     top:40vh;
   }
-.navbar-default {
-  text-align:center;
-  margin:0;
-}
+  
 .center-block{
   text-align:center;
   top:40vh;
   position: relative;
-
 }
 
-.container{
-  margin: auto;
-  margin-top: 8vh;
-  padding: auto;
-}
-
-.thumbnail1{
-  width: 30vw;
-}
-.row {
-  text-align: center;
-  margin: auto;
-  padding: auto;
-}
-.row2{
-  margin: 0;
-
-}
 .container1{
   margin: 0;
 }
-
 #rowPost{
 
 }
@@ -53,12 +30,13 @@ body {
 .container-fluid{
   margin: 0;
 }
+
 .homeTitle{
   text-align: center;
   font-size: 48px;
   margin: 0;
   position: absolute;
-  top:130px;
+  top:75px;
   right:50px;
   left: 50px;
   color: white;
@@ -98,15 +76,14 @@ body {
   text-align: center;
 }
 .bg-lightgray{
-
   position: relative;
   height: 8vh;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
 
 .cityPop{

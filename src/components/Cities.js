@@ -1,11 +1,9 @@
- import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import Nav from './Nav';
-import style from './index.css'
+
+import React, { Component } from 'react';
+import './index.css'
 import {oneCity} from './Util';
 import Post from './Post';
-import Search from './Search'
-// import { isLoggedIn } from './AuthService';
+import style from './style';
 
 class Cities extends Component {
 
