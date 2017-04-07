@@ -52,7 +52,7 @@ app.get('/api/cities/:cityName/posts', controllers.cities.showPosts);
 app.get('/api/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
 app.put('/api/posts/:postId', controllers.posts.update);
-app.get('/api/users/:userId/posts/', controllers.posts.indexProfile);
+app.get('/api/users/:userName/posts/', controllers.posts.indexProfile);
 app.post('/api/user/:username/city/:cityname/posts', controllers.posts.post);
 app.delete('/api/posts/:postId', controllers.posts.destroy);
 

@@ -8,6 +8,7 @@ import Cities from './Cities';
 
 
 class AllCities extends Component {
+
   constructor(props){
     super(props)
     this.state = {
@@ -24,7 +25,7 @@ class AllCities extends Component {
         city: data
       })
   })
-  
+
   oneCity(name).then(data => {
     this.setState({
       posts: data

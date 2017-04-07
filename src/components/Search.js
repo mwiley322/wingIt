@@ -43,8 +43,8 @@ class Search extends Component {
  }
  }
 
-
   render(){
+
     return (
       <div id='searchBar'>
       <form onSubmit={this.handleSubmitQuery}>
@@ -68,6 +68,7 @@ class Search extends Component {
     )
 
   }
+
 }
 
 export default Search

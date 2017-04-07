@@ -21,10 +21,10 @@ function show(req,res){
   })
 }
 
-//GET /api/users/:userdId/posts
+//GET /api/users/:userName/posts
 function indexProfile(req,res){
-  var id = req.params.userId
-  db.User.findById(id, function(err,foundUser){
+  var username = req.params.userName
+  db.User.findOne({username:username}, function(err,foundUser){
     if(err){
       console.log("error",err);
     }

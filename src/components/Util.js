@@ -48,6 +48,13 @@ export function checkForExistingUser (id) {
   });
 }
 
+export function getUserPosts(name){
+  var url = ('http://localhost:3001/api/users/' + name + '/posts');
+  return $.getJSON(url).then(function(res){
+    console.log('found all posts by user', res);
+    return res;
+  })
+}
 export function createPost(post){
   var username = post.author;
   var cityname = post.city;

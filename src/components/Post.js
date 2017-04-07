@@ -64,6 +64,7 @@ export default class Post extends Component {
     this.setState({
       content: this.refs.contentEdit.value,
       title: this.refs.titleEdit.value,
+      // author:this.refs.usernameEdit.value,
       city:this.state.city
     });
   }
