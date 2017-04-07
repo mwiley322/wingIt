@@ -1,4 +1,4 @@
-function index(req, res) {
+module.exports = index(req, res) {
   res.json({
     message: 'Welcome to the table of contents of Wingit!',
     documentation_url: 'https://github.com/mwiley322/wingIt',
@@ -49,11 +49,13 @@ function index(req, res) {
       {
         method: 'DELETE', path: '/api/posts/:postId', description: 'Destroys a single post written by a user'
       }
+
+      // TODO: embed /:postId in there down there
       // {
       //   method: 'GET', path: '/api/users/posts/comments', description: 'Gets all comments within the database'
       // },
       // {
-      //   method: 'GET', path: '/api/users/posts/comments/:id', description: 'Gets a single comment based on parameters'
+      //   method: 'GET', path: '/api/users/posts/:postId/comments/:id', description: 'Gets a single comment based on parameters'
       // },
       // {
       //   method: 'POST', path: '/api/users/posts/comments', description: 'Creates a single new comment on a post'
@@ -68,4 +70,4 @@ function index(req, res) {
   });
 }
 
-module.exports = {index: index};
+ //{index: index};

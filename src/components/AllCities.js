@@ -10,9 +10,10 @@ class AllCities extends Component {
   constructor(props){
     super(props)
     this.state = {
-      city: [],
-      cities: [],
-      posts: [],
+      // TODO: use plurals for arrays, name better, don't be risky
+        city: [],
+        cities: [],
+        posts: [],
       }
   }
 

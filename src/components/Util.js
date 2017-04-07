@@ -8,14 +8,16 @@ export function allCities (search) {
   })
 }
 
+// TODO: Use verbs/nouns
 export function getCities () {
   var url = ('http://localhost:3001/api/cities/');
   return $.getJSON(url).then(function(res) {
-    console.log("all cities from db", res);
+    console.log("all cities from db ", res);
     return res;
   })
 }
 
+// TODO: Naming conventions
 export function oneCity (name) {
   var urlOne = ('http://localhost:3001/api/cities/' + name + '/posts');
   return $.getJSON(urlOne).then(function(res) {

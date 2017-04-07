@@ -30,13 +30,13 @@ function showPosts(req,res){
       console.log("error finding city", err);
     }
     console.log(foundCity[0].name, "this is found city");
-  db.Post.find({city:foundCity[0].name}, function(err,posts){
-    if(err){
-      console.log("error",err);
-    }
-    res.json(posts)
+    db.Post.find({city:foundCity[0].name}, function(err,posts){
+      if(err){
+        console.log("error",err);
+      }
+      res.json(posts)
+    });
   });
-})
 }
 
 
