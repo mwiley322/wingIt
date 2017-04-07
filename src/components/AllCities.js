@@ -4,28 +4,42 @@ import React, { Component } from 'react';
 import style from './index.css'
 import {getCities} from './Util';
 import {allCities} from './Util';
+import {oneCity} from './Util';
+import Post from './Post';
+import Cities from './Cities';
 // import { isLoggedIn } from './AuthService';
 
 
 class AllCities extends Component {
 
+
+componentWillUpdate(){
+  return false
+}
   constructor(props){
     super(props)
     this.state = {
-      cities: []
+      city: [],
+      cities: [],
+      posts: [],
       }
   }
-  // componentWillUnmount(){
-  //   location.reload();
-  // }
   OneCitySelect(name){
     console.log('clicked select for name', name);
     allCities(name).then(data => {
       this.setState({
-        cities: data
+        city: data
       })
   })
-}
+  oneCity(name).then(data => {
+    this.setState({
+      posts: data
+     })
+     console.log("these are the posts", this.state.posts);
+   })
+   window.scrollTo(0,0);
+  }
+
   componentDidMount(){
     getCities().then(data => {
       console.log("post data is: ", data)
@@ -35,10 +49,10 @@ class AllCities extends Component {
     })
   }
 
+
     render() {
       let cities=this.state.cities
       let results=cities.map((city) => {
-        console.log("city is", city)
         return (
           <div key={city._id} className="col-md-9">
                      <div className="thumbnail">
@@ -53,6 +67,7 @@ class AllCities extends Component {
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
                              <button onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
 
+
                              <p>
                                  <span className="glyphicon glyphicon-star"></span>
                                  <span className="glyphicon glyphicon-star"></span>
@@ -63,11 +78,12 @@ class AllCities extends Component {
                              </p>
                          </div>
                      </div>
+                  )
+                })
 
-        )
-     })
       return (
         <div>
+        <Cities cities = {this.state.city}/>
         {results}
         </div>
       )

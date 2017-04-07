@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import './index.css'
 import {oneCity} from './Util';
@@ -38,7 +39,9 @@ class Cities extends Component {
       let results=cities.map((city) => {
         console.log("city is", city)
         return (
-          <div key={city._id} className="col-md-12">
+          <div className="container">
+          <div key={city._id} className="col-md-9" id="col9">
+                  <div className="thumbDiv">
                      <div className="thumbnail">
                          <div className="caption-full">
                            <h2 className="cityName">{city.name}</h2>
@@ -60,13 +63,14 @@ class Cities extends Component {
                                  <span className="glyphicon glyphicon-star-empty"></span>
                                  4.0 stars
                              </p>
+
                          </div>
                      </div>
-
+</div>
         )
      })
       return (
-        <div>
+        <div class="postResults">
         {results}
         </div>
       )

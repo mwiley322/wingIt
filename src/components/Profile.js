@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {getProfile} from './AuthService'
-import style from './index.css'
-
+import {createUser, checkForExisitingUser} from './Util.js';
 
 
 export default class Profile extends Component {
 
+  // function parse createUser(data.dateJoined)
 
     constructor(props){
       super(props)
