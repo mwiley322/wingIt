@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { login, logout, isLoggedIn } from './AuthService';
+import style from './style';
+import EditPost from './EditPost.js';
+
 
 class Nav extends Component {
   render() {
@@ -14,15 +17,20 @@ class Nav extends Component {
             <Link to="/AllCities">Explore Cities</Link>
           </li>
           <li>
+            {            
+            ( isLoggedIn() ) ? <Link to="/edit">Edit Comment</Link> : ''
+            }
+          </li>
+          <li>
             {
              ( isLoggedIn() ) ? <Link to="/profile">Profile</Link> :  ''
             }
           </li>
-        </ul>
-        <ul className="nav navbar-nav navbar-right">
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
           <li>
            {
-             (isLoggedIn()) ? ( <button className="btn btn-danger log" onClick={() => logout()}>Log out </button> ) : ( <button className="btn btn-info log" onClick={() => login()}>Log In</button> )
+             (isLoggedIn()) ? ( <button className="btn btn-danger log" style={style.navButton} onClick={() => logout()}>Log out </button> ) : ( <button className="btn btn-info log" style={style.navButton} onClick={() => login()}>Log In</button> )
            }
           </li>
         </ul>

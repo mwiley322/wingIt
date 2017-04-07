@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import {createPost} from './Util';
-import {oneCity} from './Util';
-import {deletePost} from './Util';
-import {allCities} from './Util';
-import {editPost} from './Util';
 import {getProfile} from './AuthService'
 import Auth0Lock from 'auth0-lock';
+
+
+import {createPost, oneCity, deletePost, allCities, editPost} from './Util';
+
+
 const ID_TOKEN_KEY= 'id_token';
 
-class Post extends Component {
+export default class Post extends Component {
 
   constructor(props){
     console.log("props are: ", props)
@@ -110,42 +110,41 @@ class Post extends Component {
     let authorVarPic= post.authorImg
     return (
 
-    <div className="container" key={post._id}>
-        <div className="span12">
-        <div className="row">
-          <div className="span8">
+   <div className="container" key={post._id} id="postContainer">
 
-          </div>
-        </div>
-        <div className="row">
-          <div className="span2">
-            <a href="#" className="thumbnail">
-              <div className="col-xs-2">
-                <h5>{post.author}</h5>
-                <img src={post.authorImg} className="img-responsive" alt="user"/>
-              </div>
-            </a>
-          </div>
-          <br />
-          <h5><strong>Title:&nbsp;{post.title}</strong></h5>
-          <div className="span10">
-            <p className="postContent"></p>
+                    <div className="col-xs-7 postBox">
+                        <div className="row">
+                            <div className="col-xs-2">
+                                <h5>{post.author}</h5>
+                                <img src={post.authorImg} className="img-responsive" alt="user"/>
+                                <div className="row">
+                                    <p>
+                                        <i className="icon-calendar"></i>
+                                        Sept 16, 2012
+                                    </p>
+                                    <button onClick={this.handlePostEdit.bind(this, post._id)}>edit</button>
+                                    <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
+                                </div>
+                            </div>
+                            <div className="col-xs-5">
+                                <h5>
+                                    <strong>Title:&nbsp;{post.title}</strong>
+                                </h5>
 
-             <h5> <strong>Comment: &nbsp;</strong>{post.content}</h5>
-            <p><a className="btn" href="#">Comment</a></p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="span8">
-                <p>
-               <i className="icon-calendar"></i> Sept 16, 2012
-              </p>
-              <button onClick={this.handleEditSubmitForm.bind(this, post._id)}>edit</button>
-              <button onClick={this.handleDelete.bind(this, post._id)}>Delete</button>
-            </div>
-          </div>
-        </div>
-    </div>
+                                <p className="postContent"></p>
+
+                                <h5>
+                                    <strong>Comment: &nbsp;</strong>{post.content}</h5>
+                                <p>
+                                    <a className="btn" href="#">Comment</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
         )
       })
@@ -156,7 +155,7 @@ class Post extends Component {
         <br/>
           <div>
           <h2>Write a post</h2>
-            <form onSubmit={this.handlePostSubmit}>
+            <form className='col-xs-4' onSubmit={this.handlePostSubmit}>
               <input placeholder="Title" type="text"
                 ref='title' onChange={this.handleContentChange}/>
               <br/>
@@ -186,6 +185,6 @@ class Post extends Component {
 )
   }
   }
+
 }
 
-export default Post;

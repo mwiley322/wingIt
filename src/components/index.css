@@ -10,54 +10,58 @@ body {
     text-align:center;
     top:40vh;
   }
-.navbar-default {
-  text-align:center;
-  margin:0;
-}
+  
 .center-block{
   text-align:center;
   top:40vh;
   position: relative;
-
 }
 
-
-.row2{
-  margin: 0;
-
-}
 .container1{
   margin: 0;
 }
+#rowPost{
 
+}
+.thumbDiv{
+  margin-left: 13vw;
+  padding: auto;
+}
 .container-fluid{
   margin: 0;
 }
+
 .homeTitle{
   text-align: center;
   font-size: 48px;
   margin: 0;
   position: absolute;
-  top:130px;
+  top:75px;
   right:50px;
   left: 50px;
   color: white;
 
 }
-.col-xs-offset-2{
+/*.col-xs-offset-2{
   text-align:center;
   top:40vh;
-}
+}*/
+
+/*#col9{
+  margin: auto;
+  margin-top: 8vh;
+}*/
 .img-responsive{
-  height: 30vh;
-  width: 30vw;
+  height: 40vh;
+  width: 50vw;
+  margin: auto;
 }
-.col-md-4 {
+/*.col-md-4 {
   background: #aaaaaa;
 }
 .col-md-5{
   background: #aaaaaa;
-}
+}*/
 .col-md-6{
   text-align:center;
   top:40vh;
@@ -67,28 +71,21 @@ body {
 .btn-primary{
   background: #aaaaaa;
 }
-img{
-  background-position: center;
-  width: 20vw;
-  height: 30vh;
-}
+
 .cityName{
   text-align: center;
 }
 .bg-lightgray{
-
-  position: fixed;
+  position: relative;
   height: 8vh;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
-.thumbnail{
-  width:75vw;
-}
+
 .cityPop{
   text-align: center;
 }
@@ -96,4 +93,12 @@ img{
 #ProfCont {
   background-color: white;
   display: inline-block!important;
+}
+
+.col-md-6 {
+  background-color: white;
+}
+
+.editComment {
+  margin-left: 30vw;
 }
