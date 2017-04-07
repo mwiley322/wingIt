@@ -63,7 +63,7 @@ app.get('/api/users/:userId', controllers.users.show);
 app.get('/api/user/:userId', controllers.users.showOne)
 app.post('/api/users', controllers.users.create);
 app.put('/api/users/:userId', controllers.users.update);
-app.delete('/api/users/:userId', controllers.users.destroy);
+app.delete('/api/users/:username', controllers.users.destroy);
 
 //start server
 app.listen(port, function() {

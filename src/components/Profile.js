@@ -3,7 +3,7 @@ import {getProfile} from './AuthService'
 import {getUserPosts} from './Util';
 import style from './index.css';
 import ProfPosts from './ProfPosts';
-import {createUser, checkForExisitingUser} from './Util.js';
+import {createUser, checkForExisitingUser, deleteUser} from './Util.js';
 
 export default class Profile extends Component {
 
@@ -42,6 +42,10 @@ export default class Profile extends Component {
 
     handleUserDelete(name){
       console.log("we are going to delete", name);
+      deleteUser(name);
+      alert('you have been deleted, goodbye!');
+      location.reload();
+
     }
 
   render() {

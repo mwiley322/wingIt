@@ -59,11 +59,11 @@ function update(req, res) {
   });
 }
 
-// DELETE /api/users/:userId
+// DELETE /api/users/:username
 function destroy(req, res) {
   console.log('THIS USER IS BEING DELETED:', req.params);
-  var userId = req.params.userId;
-  db.User.findByIdAndRemove(userId, function(err, deletedUser) {
+  var username = req.params.username;
+  db.User.findOneAndRemove({username:username}, function(err, deletedUser) {
     if (err) {
       console.log('ERROR DELETING A USER: ', err);
     } else {
