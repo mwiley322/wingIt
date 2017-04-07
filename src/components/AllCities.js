@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import Nav from './Nav';
 import style from './index.css'
 import {getCities} from './Util';
 import {allCities} from './Util';
 import {oneCity} from './Util';
 import Post from './Post';
 import Cities from './Cities';
-// import { isLoggedIn } from './AuthService';
 
 
 class AllCities extends Component {
-
-
-componentWillUpdate(){
-  return false
-}
   constructor(props){
     super(props)
     this.state = {

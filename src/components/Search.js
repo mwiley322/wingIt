@@ -22,11 +22,6 @@ class Search extends Component {
     })
   }
 
-  handleToggleSearch (e) {
-    let badSearch = !this.state.badSearch
-    this.setState(Object.assign(this.state, {badSearch, }))
-  }
-
   handleSubmitQuery(e){
     e.preventDefault()
     if(this.state.search.length > 2){
@@ -34,22 +29,24 @@ class Search extends Component {
       this.setState({
         search:'',
         badSearch: this.state.badSearch,
-        cities: data,
+        cities: data
       })
     })
-  } else {
-    this.setState({
-      search:'',
-      badSearch: !this.state.badSearch,
-      cities:[]
-    })
-    alert('please enter more than 2 letters')
-  }
+  // } else {
+  //   this.setState({
+  //     search:'',
+  //     badSearch: !this.state.badSearch,
+  //     cities:[]
+  //   })
+  //   alert('please enter more than 2 letters')
+  // }
  }
+ }
+
 
   render(){
     return (
-      <div>
+      <div id='searchBar'>
       <form onSubmit={this.handleSubmitQuery}>
         <div className="form-group col-sm-4 col-sm-offset-4">
           <input
@@ -61,6 +58,7 @@ class Search extends Component {
         </div>
         <div className="form-group col-sm-4 col-sm-offset-4">
           <button
+            id='searchSubmit'
             className="btn btn-block btn-primary"
             type="submit">Search!</button>
         </div>
@@ -68,6 +66,7 @@ class Search extends Component {
       <Cities cities={this.state.cities}/>
       </div>
     )
+
   }
 }
 

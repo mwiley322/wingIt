@@ -4,17 +4,12 @@ import {createUser, checkForExisitingUser} from './Util.js';
 
 
 export default class Profile extends Component {
-
-  // function parse createUser(data.dateJoined)
-
     constructor(props){
       super(props)
       this.state = {
         user: getProfile()
       }
-      console.log("I am user", this.state.user);
     }
-
 
   render() {
     let user = this.state.user
