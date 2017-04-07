@@ -60,7 +60,7 @@ class AllCities extends Component {
                          <div className="ratings" key={city._id}>
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
-                             <button id='seeMoreBtn' onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
+                             <button id='seeMoreBtn' className="btn btn-info" onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
 
 
                              <p>

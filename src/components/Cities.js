@@ -43,7 +43,7 @@ class Cities extends Component {
                  <div className="ratings" key={city._id}>
               </div>
               <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
-              <button onClick={this.getCityProfile.bind(this, city.name)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
+              <button className="btn btn-info" onClick={this.getCityProfile.bind(this, city.name)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
               {this.state.showPosts ? <Post pollInterval={1000} posts={this.state.posts} cities={city}/> : null}
                <p>
                  <span className="glyphicon glyphicon-star"></span>
