@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import {getProfile} from './AuthService'
+
 import style from './index.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -10,18 +13,29 @@ export default class Profile extends Component {
 
   // function parse createUser(data.dateJoined)
 
+    constructor(props){
+      super(props)
+      this.state = {
+        user: getProfile()
+      }
+      console.log("I am user", this.state.user);
+    }
+
+
   render() {
+    let user = this.state.user
     return (
       <div className="container" id="ProfCont">
         <div className="col-md-9">
           <div className="row">
 
               <div className="col-md-3 pull-left">
-                  <img src="#" className="img-responsive" alt="userImage"></img>
-                  <h3>Name</h3>
-                  <h3>Date Joined</h3>
-                  <h3><i>Current City</i></h3>
+                  <img src={user.imageUrl} className="img-responsive" alt="userImage"></img>
+                  <h3>Name: {user.username}</h3>
+                  <h3>Date Joined: {user.dateJoined}</h3>
+                  <h3><i>Current City: Blank</i></h3>
                   <button type="button" class="btn btn-secondary">Edit Profile</button>
+                  <button type="button" >Delete Profile</button>
               </div>
 
 

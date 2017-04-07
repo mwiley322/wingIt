@@ -5,6 +5,7 @@ import Profile from './components/Profile';
 import { browserHistory } from 'react-router';
 import {HashRouter, Route} from 'react-router-dom';
 import { requireAuth } from './components/AuthService';
+import AllCities from './components/AllCities';
 
 
 
@@ -13,6 +14,9 @@ const Root = () => {
     <div>
     <HashRouter history={browserHistory}>
       <Route path="/" component={Main}/>
+    </HashRouter>
+    <HashRouter history={browserHistory}>
+      <Route path="/AllCities" component={AllCities}/>
     </HashRouter>
     <HashRouter history={browserHistory}>
       <Route path="/profile" component={Profile} onEnter={requireAuth} />

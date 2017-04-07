@@ -1,81 +1,119 @@
-import React, {Component} from 'react';
-import {createPost, oneCity, deletePost, allCities} from './Util';
+import React, { Component } from 'react';
+import Auth0Lock from 'auth0-lock';
 
-class Post extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            title: '',
-            content: '',
-            city: '',
-            author: '',
-            posts: this.props.posts
-        }
-        this.handlePostSubmit = this.handlePostSubmit.bind(this);
-        this.handleContentChange = this.handleContentChange.bind(this);
-        this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
+import {createPost, oneCity, deletePost, allCities, editPost} from './Util';
+
+
+const ID_TOKEN_KEY= 'id_token';
+
+export default class Post extends Component {
+
+  constructor(props){
+    console.log("props are: ", props)
+    super(props)
+    this.state= {
+      title:'',
+      content:'',
+      city: this.props.cities.name,
+      author:'',
+      uniqueId:'',
+      posts:this.props.posts,
+      toBeUpdated:false
     }
+    this.handlePostSubmit= this.handlePostSubmit.bind(this);
+    this.handleContentChange= this.handleContentChange.bind(this);
+    this.loadPostsFromServer= this.loadPostsFromServer.bind(this);
+    this.handleEditSubmit= this.handleEditSubmit.bind(this);
+    this.handleEditChange= this.handleEditChange.bind(this);
 
-    loadPostsFromServer() {
-        allCities('').then(res => {
-            this.setState({posts: res})
-            console.log("working from loadpsotfromserver", this.state.posts);
-        })
-    }
-    //   componentDidUnmount(){
-    //     setInterval(0);
-    //   }
-    // componentDidMount(){
-    //   this.loadPostsFromServer();
-    //   setInterval(this.loadPostsFromServer, this.props.pollInterval)
-    // }
+  }
 
-    handleDelete(id) {
-        console.log("going to delete", id);
-        deletePost(id);
-    }
+  // componentDidUpdate(){
+  // }
+  loadPostsFromServer(){
+    oneCity(this.state.city).then(res=> {
+      console.log("res is ", res);
+      this.setState({
+        posts:res
+      })
+      console.log("working from loadpsotfromserver", this.state.posts);
+    })
+  }
+  //   componentWillUnmount(){
+  //     setInterval(0);
+  //   }
+  componentDidMount(){
+    console.log("the city in DidMount are", this.state.city)
+    this.loadPostsFromServer();
+    setInterval(this.loadPostsFromServer, this.props.pollInterval)
+  }
 
-    handlePostEdit(id) {
-        console.log('going to edit', id);
-    }
+  handleDelete(id){
+    console.log("going to delete" , id);
+    deletePost(id);
+  }
+  handleEditSubmitForm(id,e){
+    console.log("edit in submitform ", id);
+    e.preventDefault();
+    this.setState({
+      toBeUpdated: !this.state.toBeUpdated,
+      uniqueId:id,
+    })
+    window.scrollTo(0,document.body.scrollHeight);
 
-    handlePostSubmit(e) {
-        e.preventDefault();
-        let post = this.state;
-        console.log(post, 'post here ');
-        createPost(post)
-    }
+  }
 
-    handleContentChange(e) {
-        this.setState({content: this.refs.content.value, title: this.refs.title.value, author: this.refs.username.value, city: this.refs.city.value})
-    }
-    handleCity(cityVar) {
-        console.log("cityvar going to handleCity fx", cityVar);
-        let city = cityVar
-        // this.setState({
-        //   city: city
-        // })
-    }
-    handleAuthor() {
-        this.setState({author: 'author', authorImg: 'authorPic'})
-    }
+  handleEditSubmit(e){
+    e.preventDefault();
+    let id = this.state.uniqueId;
+    console.log('going to edit', this.state.uniqueId);
+    let post = this.state;
+    console.log("updated info called post", post);
+    editPost(id,post)
+    this.setState({
+      toBeUpdated: !this.state.toBeUpdated,
+    })
+  }
 
-    componentWillReceiveProps(cityVar) {
-        this.setState({city: cityVar})
-        return this.state.city;
-        console.log(this.state.city, '<-comprecieveprops state here');
-    }
+  handleEditChange(e){
+    this.setState({
+      content: this.refs.contentEdit.value,
+      title: this.refs.titleEdit.value,
+      // author:this.refs.usernameEdit.value,
+      city:this.state.city
+    })
 
-    render() {
-        let posts = this.props.posts
-        let results = posts.map((post) => {
-            let cityVar = post.city
-            let authorVarName = post.author
-            let authorVarPic = post.authorImg
-            return (
+  }
 
-                <div className="container" key={post._id} id="postContainer">
+  handlePostSubmit(e){
+    e.preventDefault();
+    let post= this.state;
+    console.log(post,'post here ');
+    createPost(post)
+      this.refs.content.value='';
+      this.refs.title.value='';
+      this.refs.username.value='';
+  }
+
+  handleContentChange(e){
+    this.setState({
+      content: this.refs.content.value,
+      title: this.refs.title.value,
+      author:this.refs.username.value,
+      city:this.state.city
+    })
+  }
+
+
+  render() {
+    let posts= this.state.posts
+    let results= posts.map( (post)=> {
+    let authorVarName= post.author
+    let authorVarPic= post.authorImg
+    return (
+
+   <div className="container" key={post._id} id="postContainer">
 
                     <div className="col-xs-7 postBox">
                         <div className="row">
@@ -111,28 +149,48 @@ class Post extends Component {
 
                 </div>
 
-            )
-        })
-        return (
-            <div>
-                {results}
-                <br/>
-                <div>
-                    <h2>Write a post</h2>
-                    <form onSubmit={this.handlePostSubmit}>
-                        <input placeholder="Title" type="text" ref='title' onChange={this.handleContentChange}/>
-                        <br/>
-                        <input placeholder="Enter thoughts here" type="text" ref='content' onChange={this.handleContentChange}/>
-                        <br/>
-                        <input placeholder="Enter current City" type="text" ref='city' onChange={this.handleContentChange}/>
-                        <br/>
-                        <input placeholder="Enter username" type="text" ref='username' onChange={this.handleContentChange}/>
-                        <button type='submit'>Post</button>
-                    </form>
-                </div>
-            </div>
         )
-    }
+      })
+      if(!this.state.toBeUpdated){
+      return (
+        <div>
+        {results}
+        <br/>
+          <div>
+          <h2>Write a post</h2>
+            <form onSubmit={this.handlePostSubmit}>
+              <input placeholder="Title" type="text"
+                ref='title' onChange={this.handleContentChange}/>
+              <br/>
+              <input placeholder="Enter thoughts here" type="text"
+                ref='content' onChange={this.handleContentChange}/>
+                <br/>
+                  <input placeholder="Enter username" type="text"
+                    ref='username' onChange={this.handleContentChange}/>
+              <button type='submit'>Post</button>
+            </form>
+        </div>
+        </div>
+    )
+  } else{
+    return (
+      <div>
+      {results}
+    <div>
+    <h2>Edit This post</h2>
+      <form onSubmit={this.handleEditSubmit}>
+        <input placeholder="Title" type="text"
+          ref='titleEdit' onChange={this.handleEditChange}/>
+        <br/>
+        <input placeholder="Enter thoughts here" type="text"
+          ref='contentEdit' onChange={this.handleEditChange}/>
+        <button type='submit'>Save</button>
+      </form>
+  </div>
+  </div>
+)
+  }
+  }
+
 }
 
-export default Post;

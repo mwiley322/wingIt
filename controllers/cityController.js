@@ -21,14 +21,16 @@ function show(req,res) {
   })
 }
 
-//GET /api/cities/:cityId/posts
+//GET /api/cities/:cityName/posts
 function showPosts(req,res){
-  var id = req.params.cityId;
-  db.City.findById(id, function(err,foundCity){
+  var cityName = req.params.cityName;
+  console.log(cityName, "this is cityName");
+  db.City.find({name:{'$regex':cityName, '$options' : 'i'}}, function(err,foundCity){
     if(err){
       console.log("error finding city", err);
     }
-  db.Post.find({city:foundCity.name}, function(err,posts){
+    console.log(foundCity[0].name, "this is found city");
+  db.Post.find({city:foundCity[0].name}, function(err,posts){
     if(err){
       console.log("error",err);
     }

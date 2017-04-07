@@ -7,6 +7,9 @@ import './index.css';
 
 
 class Main extends Component {
+  // componentWillUnmount(){
+  //   location.reload();
+  // }
   render() {
     return (
       <div className="mainPage">
