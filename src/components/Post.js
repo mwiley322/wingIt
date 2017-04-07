@@ -116,7 +116,6 @@ export default class Post extends Component {
               <div className="span10">
                 <p className="postContent"></p>
                 <h5> <strong>Comment: &nbsp;</strong>{post.content}</h5>
-                <p><a className="btn" href="#">Comment</a></p>
               </div>
             </div>
             <div className="row">

@@ -88,3 +88,15 @@ export function deletePost(id){
 }
 })
 }
+
+export function deleteUser(username){
+  console.log("going to db", username);
+  var urlDelete = ('http://localhost:3001/api/users/'+ username);
+  return $.ajax({
+    method:"DELETE",
+    url:urlDelete,
+    success: function(res){
+      console.log("deleted", res);
+    }
+  })
+}
