@@ -30,10 +30,12 @@ class Post extends Component {
     })
   }
   handleContentChange(e,cityVar){
+    console.log("cityVar in handleConChange isis" , cityVar);
     this.setState({
       content: this.refs.content.value,
       author:'author',
       authorImg:'authorPic',
+      city:cityVar
     })
   }
   handleCity(cityVar){
@@ -87,12 +89,10 @@ class Post extends Component {
         <p><a className="btn" href="#">Comment</a></p>
       </div>
     </div>
-                <button onClick ={this.handleCity(post.city)}>Edit</button>
-          <button onClick={this.handleDelete(post._id)}>Delete</button>
     <div className="row">
       <div className="span8">
             <p>
-          | <i className="icon-calendar"></i> Sept 16th, 2012
+          | <i className="icon-calendar"></i> Sept 16, 2012
           </p>
         </div>
       </div>
