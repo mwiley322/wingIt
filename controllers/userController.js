@@ -13,6 +13,18 @@ function index(req,res) {
 //GET /api/users/:userId
 function show(req,res) {
   var id = req.params.userId;
+  console.log('THIS IS MY REQUEST ', id);
+  db.User.find({ idFromAuth0 : id }, function(err, foundUser){
+    if(err){
+      console.log("Error getting that user: ", err);
+    }
+    res.json(foundUser);
+  });
+}
+
+function showOne(req,res) {
+  var id = req.params.userId;
+  console.log('THIS IS MY REQUEST ', id);
   db.User.findById(id, function(err, foundUser){
     if(err){
       console.log("Error getting that user: ", err);
@@ -47,11 +59,11 @@ function update(req, res) {
   });
 }
 
-// DELETE /api/users/:userId
+// DELETE /api/users/:username
 function destroy(req, res) {
   console.log('THIS USER IS BEING DELETED:', req.params);
-  var userId = req.params.userId;
-  db.User.findByIdAndRemove(userId, function(err, deletedUser) {
+  var username = req.params.username;
+  db.User.findOneAndRemove({username:username}, function(err, deletedUser) {
     if (err) {
       console.log('ERROR DELETING A USER: ', err);
     } else {
@@ -63,6 +75,7 @@ function destroy(req, res) {
 module.exports = {
   index:index,
   show:show,
+  showOne:showOne,
   create: create,
   update: update,
   destroy: destroy

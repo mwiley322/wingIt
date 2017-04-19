@@ -46,23 +46,24 @@ app.get('/api', controllers.api.index);
 //CITY CONTROLLERS
 app.get('/api/cities', controllers.cities.index);
 app.get('/api/cities/:cityName', controllers.cities.show);
-app.get('/api/cities/:cityId/posts', controllers.cities.showPosts);
+app.get('/api/cities/:cityName/posts', controllers.cities.showPosts);
 
 //POST CONTROLLERS
 app.get('/api/posts', controllers.posts.index);
 app.get('/api/posts/:postId', controllers.posts.show);
 app.put('/api/posts/:postId', controllers.posts.update);
-app.get('/api/users/:userId/posts/', controllers.posts.indexProfile);
-app.post('/api/user/:userId/city/:cityId/posts', controllers.posts.post);
+app.get('/api/users/:userName/posts/', controllers.posts.indexProfile);
+app.post('/api/user/:username/city/:cityname/posts', controllers.posts.post);
 app.delete('/api/posts/:postId', controllers.posts.destroy);
 
 
 //USER CONTROLLERS
 app.get('/api/users', controllers.users.index);
 app.get('/api/users/:userId', controllers.users.show);
+app.get('/api/user/:userId', controllers.users.showOne)
 app.post('/api/users', controllers.users.create);
 app.put('/api/users/:userId', controllers.users.update);
-app.delete('/api/users/:userId', controllers.users.destroy);
+app.delete('/api/users/:username', controllers.users.destroy);
 
 //start server
 app.listen(port, function() {
