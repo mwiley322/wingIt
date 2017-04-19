@@ -6,61 +6,59 @@ body {
   background-size: cover;
   color: black;
 }
-.form-group{
-    text-align:center;
-    top:40vh;
-  }
 
-.center-block{
-  text-align:center;
-  top:40vh;
+.form-group {
+  text-align: center;
+  top: 40vh;
+}
+
+.center-block {
+  text-align: center;
+  top: 40vh;
   position: relative;
 }
 
-.container1{
+.container1 {
   margin: 0;
 }
 
-
-.thumbDiv{
+.thumbDiv {
   margin-left: 13vw;
   padding: auto;
 }
-.container-fluid{
+
+.container-fluid {
   margin: 0;
 }
 
-.homeTitle{
+.homeTitle {
   text-align: center;
   font-size: 48px;
   margin: 0;
   position: absolute;
-  top:75px;
-  right:50px;
+  top: 75px;
+  right: 50px;
   left: 50px;
   color: white;
   text-shadow: 2px 2px 1px #203541;
 }
 
-.img-responsive{
+.img-responsive {
   width: 50vw;
   margin: auto;
 }
 
-.col-md-6{
-  text-align:center;
-  top:40vh;
+.col-md-6 {
+  text-align: center;
+  top: 40vh;
   position: relative;
-
-}
-.btn-primary{
-  background: #aaaaaa;
 }
 
-.cityName{
+
+.cityName {
   text-align: center;
 }
-.bg-lightgray{
+.bg-lightgray {
   position: relative;
   height: 8vh;
   right: 0;
@@ -71,19 +69,55 @@ body {
   text-align: center;
 }
 
-.cityPop{
+.cityPop {
   text-align: center;
 }
-
 #ProfCont {
   background-color: white;
   display: inline-block!important;
 }
 
-.col-md-6 {
-  background-color: white;
-}
 
 .editComment {
   margin-left: 30vw;
+}
+.thumbnail {
+    padding:0px;
+}
+.panel {
+	position:relative;
+  overflow:scroll;
+  text-indent: inherit;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+.btn {
+  margin-top: 10px;
+}
+input[type=file]{
+    color:transparent;
+}
+#file{
+  padding: 20px;
+  top:0,auto;
 }

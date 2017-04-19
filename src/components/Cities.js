@@ -31,7 +31,7 @@ class Cities extends Component {
     let results=cities.map((city) => {
       return (
         <div className="container" id="citySearchResult">
-        <div key={city._id} id='seeOneCity' className="col-md-9" id="col9">
+        <div key={city._id} id='seeOneCity' className="col-md-12 ">
           <div className="thumbDiv">
              <div className="thumbnail">
                  <div className="caption-full">
@@ -45,14 +45,6 @@ class Cities extends Component {
               <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
               <button className="btn btn-info" onClick={this.getCityProfile.bind(this, city.name)}>{this.state.showPosts ? 'Hide Posts' : 'Show Posts'}</button>
               {this.state.showPosts ? <Post pollInterval={1000} posts={this.state.posts} cities={city}/> : null}
-               <p>
-                 <span className="glyphicon glyphicon-star"></span>
-                 <span className="glyphicon glyphicon-star"></span>
-                 <span className="glyphicon glyphicon-star"></span>
-                 <span className="glyphicon glyphicon-star"></span>
-                 <span className="glyphicon glyphicon-star-empty"></span>
-                 4.0 stars
-               </p>
              </div>
              </div>
          </div>

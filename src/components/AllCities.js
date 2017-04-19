@@ -59,14 +59,6 @@ class AllCities extends Component {
                           </div>
                              <h3>Price:{city.isAffordable ? '$' : '$$$'}</h3>
                              <button id='seeMoreBtn' className="btn btn-info" onClick={this.OneCitySelect.bind(this, city.name)}>See More</button>
-                             <p>
-                                 <span className="glyphicon glyphicon-star"></span>
-                                 <span className="glyphicon glyphicon-star"></span>
-                                 <span className="glyphicon glyphicon-star"></span>
-                                 <span className="glyphicon glyphicon-star"></span>
-                                 <span className="glyphicon glyphicon-star-empty"></span>
-                                 4.0 stars
-                             </p>
                          </div>
                      </div>
                   )
