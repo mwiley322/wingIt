@@ -31,7 +31,8 @@ class Cities extends Component {
     let results=cities.map((city) => {
       return (
         <div className="container" id="citySearchResult">
-        <div key={city._id} id='seeOneCity' className="col-md-12 ">
+        <div key={city._id} id='seeOneCity' className="col-md-9">
+
           <div className="thumbDiv">
              <div className="thumbnail">
                  <div className="caption-full">

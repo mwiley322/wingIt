@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import style from './index.css'
 import {getCities, allCities, oneCity } from './Util';
-import Post from './Post';
 import Cities from './Cities';
 
 
@@ -66,7 +65,7 @@ class AllCities extends Component {
 
       return (
         <div>
-        <Cities cities = {this.state.city}/>
+        <Cities cities={this.state.city}/>
         {results}
         </div>
       )

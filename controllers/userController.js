@@ -22,13 +22,15 @@ function show(req,res) {
   });
 }
 
+//GET /api/user/:username
 function showOne(req,res) {
-  var id = req.params.userId;
-  console.log('THIS IS MY REQUEST ', id);
-  db.User.findById(id, function(err, foundUser){
+  var username = req.params.username;
+  console.log('getting user now ', username);
+  db.User.findOne({username:username}, function(err, foundUser){
     if(err){
       console.log("Error getting that user: ", err);
     }
+    console.log("FOUNNDD USER in conroller", foundUser);
     res.json(foundUser);
   });
 }
@@ -45,17 +47,24 @@ function create(req, res) {
   });
 }
 
-// PUT /api/users/:userId
+// PUT /api/users/:username
 function update(req, res) {
   console.log('User update: ', req.params);
-  var userId = req.params.userId;
-  var userToUpdate = req.body;
-  db.User.findByIdAndUpdate(userId, userToUpdate, {new: true}, function(err, updatedUser) {
+  var username = req.params.username;
+  db.User.findOne({username:username}, function(err, user) {
+    console.log(user,"this is found user");
     if (err) { console.log('user update error!: ', err)
-    } else {
-      console.log(updatedUser);
-      res.json(updatedUser);
     }
+      user.imageUrl = req.body.imageUrl;
+      user.aboutMe = req.body.aboutMe;
+      user.currentCity = req.body.currentCity;
+      user.save(function(err,savedUser){
+        if(err){
+          console.log("error saving", err);
+        }
+        console.log("we saved the user", savedUser.email);
+        res.json(savedUser);
+      })
   });
 }
 

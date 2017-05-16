@@ -1,8 +1,10 @@
+
 import React, {Component} from 'react';
 import {createPost, oneCity, deletePost, allCities, editPost} from './Util';
 import {getProfile} from './AuthService'
 import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
+
 
 export default class Post extends Component {
   constructor(props) {
@@ -90,15 +92,19 @@ export default class Post extends Component {
     this.refs.title.value = '';
   }
 
-  handleContentChange(e) {
-    this.setState({content: this.refs.content.value, title: this.refs.title.value, author: this.state.user.username, city: this.state.city});
+  handleContentChange(e){
+    this.setState({
+      content: this.refs.content.value,
+      title: this.refs.title.value,
+      author:this.state.user.username || 'guest',
+      city:this.state.city
+    });
   }
 
   render() {
-    let posts = this.state.posts;
-    let results = posts.map((post) => {
-      let authorVarName = post.author
-      let authorVarPic = post.authorImg
+    let posts= this.state.posts;
+    let results= posts.map( (post)=> {
+
       return (
         <div className="row" key={post._id}>
           <div className="col-md-2">

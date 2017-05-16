@@ -59,10 +59,10 @@ app.delete('/api/posts/:postId', controllers.posts.destroy);
 
 //USER CONTROLLERS
 app.get('/api/users', controllers.users.index);
-app.get('/api/users/:userId', controllers.users.show);
-app.get('/api/user/:userId', controllers.users.showOne)
+app.get('/api/users/:userId', controllers.users.show); //Auth0
+app.get('/api/user/:username', controllers.users.showOne);//Mongo
 app.post('/api/users', controllers.users.create);
-app.put('/api/users/:userId', controllers.users.update);
+app.put('/api/users/:username', controllers.users.update);
 app.delete('/api/users/:username', controllers.users.destroy);
 
 //start server

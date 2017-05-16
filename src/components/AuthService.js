@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
 const token = 'data';
-import {createUser, checkForExistingUser} from './Util';
+import {createUser} from './Util';
 
 var options = {auth: {
   redirectUrl: `${window.location.origin}`,

@@ -170,7 +170,7 @@ var users = [
     currentCity:'London',
     aboutMe:'007',
     posts:'London drink'
-  },  
+  },
   {
     username: 'Tony Stark',
     password: '654',
@@ -179,6 +179,15 @@ var users = [
     currentCity:'Washington DC',
     aboutMe:'Genius, Billionaire, Playboy, Philanthropist',
     posts:['heros.','scotch']
+  },
+  {
+    username: 'guest',
+    password: '654',
+    profile: 'just a gurst',
+    imageUrl:'http://wallpapercave.com/wp/0PULYfE.jpg',
+    currentCity:'Internet',
+    aboutMe:'I need to make an account',
+    posts:[]
   }, 
   {
     username: 'Lamar',
@@ -188,7 +197,7 @@ var users = [
     currentCity:'San Francisco',
     aboutMe:'Hello, I am currently a 24 age full stack developer from Pittsburgh, PA now living in the Bay are.',
     posts:'sick'
-  }, 
+  },
   {
     username: 'Jesse',
     password: '6540',

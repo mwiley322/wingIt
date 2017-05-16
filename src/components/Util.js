@@ -35,7 +35,16 @@ export function createUser(data) {
 export function getUser(id) {
   var url =('http://localhost:3001/api/user/' + id);
   return $.getJSON(url).then(function(res) {
-    console.log("we got this user from db", res);
+    console.log("we got from db", res);
+    return res;
+  })
+}
+
+export function getUserInfo(username){
+  console.log("passing into db", username);
+  var url =('http://localhost:3001/api/user/' + username);
+  return $.getJSON(url).then(function(res) {
+    console.log("USSEERRRRRRRRRRRRR", res);
     return res;
   })
 }
@@ -87,6 +96,20 @@ export function deletePost(id){
     console.log("we deleted", id);
 }
 })
+}
+
+
+export function editUser(username,profile){
+  console.log(username,'post going to db');
+  var url = ('http://localhost:3001/api/users/' + username);
+  return $.ajax({
+    method:"PUT",
+    data: profile,
+    url: url,
+    success: function(res){
+      console.log('we edited', username);
+    }
+  })
 }
 
 export function deleteUser(username){

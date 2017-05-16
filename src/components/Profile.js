@@ -1,19 +1,27 @@
-import React, {Component} from 'react';
-import {getProfile} from './AuthService'
+import React, { Component } from 'react';
+import {getProfile} from './AuthService';
+
 import {getUserPosts} from './Util';
-import style from './index.css';
 import ProfPosts from './ProfPosts';
-import {createUser, checkForExisitingUser, deleteUser} from './Util.js';
+import { deleteUser, editUser, getUserInfo} from './Util.js';
 
 export default class Profile extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      user: getProfile(),
-      edit: false,
-      posts: [],
-      clicked: false
+    constructor(props){
+      super(props)
+      this.state = {
+        user: getProfile(),
+        edit:false,
+        posts: [],
+        clicked:false,
+        imageUrl:'',
+        currentCity:'',
+        aboutMe:'',
+        userInfo:''
+      }
+      this.handleEditChange= this.handleEditChange.bind(this);
+      this.handleEditProfileSubmit = this.handleEditProfileSubmit.bind(this);
+
     }
   }
   GetPosts(name) {
@@ -23,8 +31,33 @@ export default class Profile extends Component {
         posts: data,
         clicked: !this.state.clicked
       })
-      console.log("got the posts!", this.state.posts);
-    })
+      console.log("we are going to edit", name, this.state.edit);
+    }
+    // handleEditSubmit(){
+    //   console.log(this.state._id, 'id from user')
+    // }
+    handleEditChange(e){
+      console.log("refs to change", this.refs.aboutMe.value)
+      this.setState({
+        currentCity: this.refs.currentCity.value,
+        aboutMe: this.refs.aboutMe.value,
+        imageUrl: this.refs.imageUrl.value
+      });
+    }
+
+    handleEditProfileSubmit(e){
+      e.preventDefault()
+      let username = this.state.user.username
+      let profile = this.state
+      editUser(username,profile)
+      console.log('prof going w it', profile);
+      console.log('user name to be changed', username);
+      this.setState({
+        edit:!this.state.edit,
+        // user: getProfile()
+      })
+    }
+
 
   }
   handleUserEdit(name) {
@@ -49,52 +82,59 @@ export default class Profile extends Component {
       deleteUser(name);
 
       location.reload();
-
+    }
+    componentWillMount(){
+      console.log("MOUNTED- ", this.state.user.username);
+      let username = this.state.user.username
+        getUserInfo(username).then(data => {
+          this.setState({
+            userInfo: data
+          })
+        })
+        console.log('we assigned userInfo--', this.state.userInfo);
     }
   }
 
   render() {
-    let user = this.state.user;
+    let userInfo = this.state.userInfo;
+    console.log("Current user", userInfo)
     return (
-      <div className="container">
-        <div className="row clearfix well">
-          <div className="col-md-2 column">
-            <img className="img-thumbnail" alt="140x140" src={user.imageUrl}/>
+      <div className="container" id="ProfCont">
+        <div className="col-md-9">
+          <div className="row">
+              <div className="col-md-3 pull-left">
+                  <img src={userInfo.imageUrl} className="img-responsive" alt="userImage"></img>
+                  <h3>Name: {userInfo.username}</h3>
+                  <h3>About Me: {userInfo.aboutMe}</h3>
+                  <h3> Email: {userInfo.email}</h3>
+                  <h3><i>Current City: {userInfo.currentCity}</i></h3>
+                  <h5>Date Joined: {userInfo.dateJoined}</h5>
+                  <button type="button" className="btn btn-primary" onClick={this.handleUserEdit.bind(this, userInfo.username)}>Edit Profile</button>
+                  <br/>
+                  <button type="button" className="btn btn-danger" onClick={this.handleUserDelete.bind(this, userInfo.username)}>Delete Profile</button>
+                  <button type='button' className="btn btn-info" onClick={this.GetPosts.bind(this, userInfo.username)}>See all Posts</button>
+              </div>
+              <div className="col-md-12">
+              {this.state.clicked ? <ProfPosts posts={this.state.posts}/> : null}
+              {this.state.edit? <div>
+                <h2>Edit This User</h2>
+                <form onSubmit={this.handleEditProfileSubmit}>
+                  <input placeholder="Change profile Pic" type="text" ref='imageUrl' onChange={this.handleEditChange}/>
+                  <br/>
+                  <input placeholder="Change about me" type="text" ref='aboutMe' onChange={this.handleEditChange}/>
+                  <br/>
+                  <input placeholder="Change your city" type="text" ref='currentCity' onChange={this.handleEditChange}/>
+                  <br/>
+                  <button className="btn btn-xs btn-success" type='submit'>Save</button>
+                </form>
+              </div>: null}
+              </div>
+              <div className="col-md-6 pull-right">
+              </div>
+              </div>
+             </div>
+           </div>
 
-            <label className="custom-file">
-              <input type="file" id="file" className="custom-file-input"/>
-              <span className="custom-file-control"></span>
-
-            </label>
-          </div>
-          <div className="col-md-8 column">
-
-            <p>
-              <h3>{user.username}</h3>
-            </p>
-            <em>
-              <b>Email:</b>
-              {user.email}/
-              <b>Date Joined:</b>
-              {user.dateJoined}/<b>Current City:</b>San Francisco</em>
-
-          </div>
-          <div className="col-md-2 column">
-
-            <button type="button" className="btn btn-sm btn-primary" onClick={this.handleUserEdit.bind(this, user.username)}>Edit Profile&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <br/>
-            <button type="button" className="btn btn-sm btn-danger" onClick={this.handleUserDelete.bind(this, user.username)}>Delete Profile</button>
-            <br/>
-            <button type='button' className="btn btn-sm btn-info" onClick={this.GetPosts.bind(this, user.username)}>See all Posts&nbsp;</button>
-          </div>
-          <div className="col-md-9">
-            {this.state.clicked
-              ? <ProfPosts posts={this.state.posts}/>
-              : null}
-          </div>
-          <div className="col-md-6 pull-right"></div>
-        </div>
-      </div>
 
     );
   }
