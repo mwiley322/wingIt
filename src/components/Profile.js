@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getProfile} from './AuthService';
+
 import {getUserPosts} from './Util';
 import ProfPosts from './ProfPosts';
 import { deleteUser, editUser, getUserInfo} from './Util.js';
@@ -20,21 +21,15 @@ export default class Profile extends Component {
       }
       this.handleEditChange= this.handleEditChange.bind(this);
       this.handleEditProfileSubmit = this.handleEditProfileSubmit.bind(this);
-    }
-    GetPosts(name){
-      getUserPosts(name).then(data => {
-        console.log('posts from db', data);
-        this.setState({
-          posts: data,
-          clicked:!this.state.clicked
-        })
-        console.log("got the posts!", this.state.posts);
-      })
 
     }
-    handleUserEdit(name){
+  }
+  GetPosts(name) {
+    getUserPosts(name).then(data => {
+      console.log('posts from db', data);
       this.setState({
-        edit:!this.state.edit
+        posts: data,
+        clicked: !this.state.clicked
       })
       console.log("we are going to edit", name, this.state.edit);
     }
@@ -63,10 +58,29 @@ export default class Profile extends Component {
       })
     }
 
-    handleUserDelete(name){
-      console.log("we are going to delete", name);
+
+  }
+  handleUserEdit(name) {
+    this.setState({
+      edit: !this.state.edit
+    })
+    console.log("we are going to edit", name, this.state.edit);
+  }
+  handleEditSubmit() {
+    console.log(this.state._id, 'id from user')
+  }
+  handleEditChange() {
+    console.log(this.state.idFromAuth0, 'id from auth');
+  }
+
+  handleUserDelete(name) {
+    if (!confirm("Are You Sure You Want To Delete Your Account ?")) {
+      // ! => don't want to do this
+    } else {
+      //want to do this! => maybe do something about it?
+      alert('Deleting Profile, GoodBye!');
       deleteUser(name);
-      alert('you have been deleted, goodbye!');
+
       location.reload();
     }
     componentWillMount(){
@@ -79,6 +93,7 @@ export default class Profile extends Component {
         })
         console.log('we assigned userInfo--', this.state.userInfo);
     }
+  }
 
   render() {
     let userInfo = this.state.userInfo;
@@ -119,6 +134,7 @@ export default class Profile extends Component {
               </div>
              </div>
            </div>
+
 
     );
   }
