@@ -11,7 +11,7 @@ function index(req, res) {
         method: 'GET', path: '/api/users', description: 'Gets all users from database'
       },
       {
-        method: 'GET', path: '/api/users/:id', description: 'Goes to single user profile'
+        method: 'GET', path: '/api/users/:userId', description: 'Goes to single user profile'
       },
       {
         method: 'POST', path: '/api/users', description: 'Signs up a new user'
@@ -29,13 +29,13 @@ function index(req, res) {
         method: 'GET', path: '/api/cities/:cityName', description: 'Gets all cities based on parameters'
       },
       {
-        method: 'GET', path: '/api/cities/:cityId/posts', description: 'Gets all post for that city'
+        method: 'GET', path: '/api/cities/:cityName/posts', description: 'Gets all post for that city'
       },
       {
         method: 'GET', path: '/api/posts', description: 'Gets all posts from the database'
       },
       {
-        method: 'GET', path: '/api/users/:userId/posts/', description: 'Gets all posts written by a single user'
+        method: 'GET', path: '/api/users/:userName/posts/', description: 'Gets all posts written by a single user'
       },
       {
         method: 'GET', path: '/api/posts/:postId', description: 'Gets a single post written by a single user'

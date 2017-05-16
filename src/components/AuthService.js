@@ -1,25 +1,39 @@
-import Auth0Lock from 'auth0-lock';
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
+import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
+const token = 'data';
+import {createUser} from './Util';
 
-const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', {
-    auth: {
-      redirectUrl: `${window.location.origin}`,
-      responseType: 'token'
-    }
-  }
-);
+var options = {auth: {
+  redirectUrl: `${window.location.origin}`,
+  responseType: 'token',
+  params: {scope: 'openid profile'}}
+}
+
+const lock = new Auth0Lock('e6bP6BJDXyIOep18Q18PtpGGDXCFm8iL', 'mwiley322.auth0.com', options);
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  alert('you are authenticated!');
-  browserHistory.push('/profile');
+  // checkForExistingUser(authResult.idTokenPayload.user_id);
+  // if (existence.length === 0) {
+  //   console.log('I DONT EXIST YET SO I WILL BE ADDED TO THE DB!');
+    var data = {
+      idFromAuth0: authResult.idTokenPayload.user_id,
+      username: authResult.idTokenPayload.username,
+      dateJoined: authResult.idTokenPayload.created_at,
+      imageUrl: authResult.idTokenPayload.picture,
+      email: authResult.idTokenPayload.email
+    };
+    createUser(data);
+    token = data;
+    setProfile(token);
+    browserHistory.push('/profile');
 });
+
 
 export function login(options) {
   lock.show(options);
-
   return {
     hide() {
       lock.hide();
@@ -27,11 +41,22 @@ export function login(options) {
   }
 }
 
+  export function setProfile(profile) {
+    // Saves profile data to local storage
+    localStorage.setItem('profile', JSON.stringify(profile))
+  }
+
+  export function getProfile() {
+    // Retrieves the profile data from local storage
+    const profile = localStorage.getItem('profile')
+    return profile ? JSON.parse(localStorage.profile) : {}
+  }
+
+
 export function logout() {
   clearIdToken();
-    alert('you are trying to log out');
-    console.log('now logged out');
-  browserHistory.replace('/');
+    // browserHistory.replace('/');
+    location.reload();
 }
 
 export function requireAuth(nextState, replace) {
