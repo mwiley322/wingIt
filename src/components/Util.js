@@ -1,4 +1,4 @@
-// import $ from 'jquery'
+import $ from 'jquery'
 
 export function allCities (search) {
   var urlAll = ('http://localhost:3001/api/cities/'+ search);
