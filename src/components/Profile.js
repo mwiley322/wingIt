@@ -3,7 +3,7 @@ import {getProfile} from './AuthService';
 
 import {getUserPosts} from './Util';
 import ProfPosts from './ProfPosts';
-import { deleteUser, editUser, getUserInfo} from './Util.js';
+import { deleteUser, getUserInfo} from './Util.js';
 
 export default class Profile extends Component {
 
@@ -23,15 +23,16 @@ export default class Profile extends Component {
       // this.handleEditProfileSubmit = this.handleEditProfileSubmit.bind(this);
     };
 
-  // GetPosts(name) {
-  //   getUserPosts(name).then(data => {
-  //     console.log('posts from db', data);
-  //     this.setState({
-  //       posts: data,
-  //       clicked: !this.state.clicked
-  //     })
-  //     console.log("we are going to edit", name, this.state.edit);
-  //   })
+  GetPosts(name) {
+    getUserPosts(name).then(data => {
+      console.log('posts from db', data);
+      this.setState({
+        posts: data,
+        clicked: !this.state.clicked
+      })
+      console.log("we are going to edit", name, this.state.edit);
+    })
+}
 
     // handleEditChange(e){
     //   console.log("refs to change", this.refs.aboutMe.value)

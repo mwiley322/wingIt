@@ -31,11 +31,11 @@ class Cities extends Component {
     let results=cities.map((city) => {
       return (
         <div className="container" id="citySearchResult">
-        <div key={city._id} id='seeOneCity' className="col-md-9">
+        <div id='seeOneCity' className="col-md-9">
 
           <div className="thumbDiv">
              <div className="thumbnail">
-                 <div className="caption-full">
+                 <div className="caption-full" key={city._id}>
                    <h2 className="cityName">{city.name}</h2>
                      <h4 className="cityPop">Population:{city.Population}</h4>
                       <img src={city.imageUrl} style={style.cityImage} alt={city.name} className="img-responsive"/>

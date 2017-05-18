@@ -2,7 +2,6 @@ import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
-const token = 'data';
 import {createUser} from './Util';
 
 var options = {auth: {
@@ -26,8 +25,7 @@ lock.on('authenticated', authResult => {
       email: authResult.idTokenPayload.email
     };
     createUser(data);
-    token = data;
-    setProfile(token);
+    setProfile(data);
     browserHistory.push('/profile');
 });
 

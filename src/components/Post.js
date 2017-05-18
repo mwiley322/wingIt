@@ -1,9 +1,9 @@
 
 import React, {Component} from 'react';
-import {createPost, oneCity, deletePost, allCities, editPost} from './Util';
-import {getProfile} from './AuthService'
-import Auth0Lock from 'auth0-lock';
-const ID_TOKEN_KEY = 'id_token';
+import {createPost, oneCity, deletePost, editPost} from './Util';
+import {getProfile} from './AuthService';
+// import Auth0Lock from 'auth0-lock';
+// const ID_TOKEN_KEY = 'id_token';
 
 
 export default class Post extends Component {
@@ -65,7 +65,6 @@ export default class Post extends Component {
   }
 
   handleEditSubmit(e) {
-    confirm
     e.preventDefault();
     let id = this.state.uniqueId;
     let post = this.state;
