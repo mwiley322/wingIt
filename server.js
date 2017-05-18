@@ -44,9 +44,9 @@ app.use(function(req, res, next) {
 app.get('/api', controllers.api.index);
 
 //CITY CONTROLLERS
-app.get('/api/cities', controllers.cities.index);
-app.get('/api/cities/:cityName', controllers.cities.show);
-app.get('/api/cities/:cityName/posts', controllers.cities.showPosts);
+app.get('https://stormy-hamlet-96191.herokuapp.com/api/cities', controllers.cities.index);
+app.get('https://stormy-hamlet-96191.herokuapp.com/api/cities/:cityName', controllers.cities.show);
+app.get('https://stormy-hamlet-96191.herokuapp.com/api/cities/:cityName/posts', controllers.cities.showPosts);
 
 //POST CONTROLLERS
 app.get('/api/posts', controllers.posts.index);
