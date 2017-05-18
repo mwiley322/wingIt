@@ -19,11 +19,10 @@ export default class Profile extends Component {
         aboutMe:'',
         userInfo:''
       }
-      this.handleEditChange= this.handleEditChange.bind(this);
-      this.handleEditProfileSubmit = this.handleEditProfileSubmit.bind(this);
+      // this.handleEditChange= this.handleEditChange.bind(this);
+      // this.handleEditProfileSubmit = this.handleEditProfileSubmit.bind(this);
+    };
 
-    }
-  }
   GetPosts(name) {
     getUserPosts(name).then(data => {
       console.log('posts from db', data);
@@ -32,34 +31,31 @@ export default class Profile extends Component {
         clicked: !this.state.clicked
       })
       console.log("we are going to edit", name, this.state.edit);
-    }
-    // handleEditSubmit(){
-    //   console.log(this.state._id, 'id from user')
+    })
+
+    // handleEditChange(e){
+    //   console.log("refs to change", this.refs.aboutMe.value)
+    //   this.setState({
+    //     currentCity: this.refs.currentCity.value,
+    //     aboutMe: this.refs.aboutMe.value,
+    //     imageUrl: this.refs.imageUrl.value
+    //   });
     // }
-    handleEditChange(e){
-      console.log("refs to change", this.refs.aboutMe.value)
-      this.setState({
-        currentCity: this.refs.currentCity.value,
-        aboutMe: this.refs.aboutMe.value,
-        imageUrl: this.refs.imageUrl.value
-      });
-    }
 
-    handleEditProfileSubmit(e){
-      e.preventDefault()
-      let username = this.state.user.username
-      let profile = this.state
-      editUser(username,profile)
-      console.log('prof going w it', profile);
-      console.log('user name to be changed', username);
-      this.setState({
-        edit:!this.state.edit,
-        // user: getProfile()
-      })
-    }
-
-
+    // handleEditProfileSubmit(e){
+    //   e.preventDefault();
+    //   let username = this.state.user.username
+    //   let profile = this.state
+    //   editUser(username,profile)
+    //   console.log('prof going w it', profile);
+    //   console.log('user name to be changed', username);
+    //   this.setState({
+    //     edit:!this.state.edit
+    //     // user: getProfile()
+    //   })
+    // }
   }
+
   handleUserEdit(name) {
     this.setState({
       edit: !this.state.edit
@@ -80,9 +76,8 @@ export default class Profile extends Component {
       //want to do this! => maybe do something about it?
       alert('Deleting Profile, GoodBye!');
       deleteUser(name);
-
-      location.reload();
     }
+  }
     componentWillMount(){
       console.log("MOUNTED- ", this.state.user.username);
       let username = this.state.user.username
@@ -93,7 +88,7 @@ export default class Profile extends Component {
         })
         console.log('we assigned userInfo--', this.state.userInfo);
     }
-  }
+
 
   render() {
     let userInfo = this.state.userInfo;
