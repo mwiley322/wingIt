@@ -14,6 +14,8 @@ var app = express(),
 
 var port = process.env.API_PORT || 3001;
 
+mongoose.connect('mongodb://heroku_5hl4z1w9:h6snabup5aa6lnrdgfv9f7oie0@ds125060.mlab.com:25060/heroku_5hl4z1w9');
+
 //Middleware
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
