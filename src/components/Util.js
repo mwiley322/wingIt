@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
 export function allCities (search) {
-  var urlAll = ('http://localhost:3001/api/cities/'+ search);
+  var urlAll = ('https://stormy-hamlet-96191.herokuapp.com/api/cities/'+ search);
   return $.getJSON(urlAll).then(function(res) {
     console.log("city response from db", res);
     return res;
@@ -9,7 +9,7 @@ export function allCities (search) {
 }
 
 export function getCities () {
-  var url = ('http://localhost:3001/api/cities/');
+  var url = ('https://stormy-hamlet-96191.herokuapp.com/api/cities/');
   return $.getJSON(url).then(function(res) {
     console.log("all cities from db", res);
     return res;
@@ -17,7 +17,7 @@ export function getCities () {
 }
 
 export function oneCity (name) {
-  var urlOne = ('http://localhost:3001/api/cities/' + name + '/posts');
+  var urlOne = ('https://stormy-hamlet-96191.herokuapp.com/api/cities/' + name + '/posts');
   return $.getJSON(urlOne).then(function(res) {
     console.log('all the posts res from db', res);
     return res;

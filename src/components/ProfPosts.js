@@ -8,7 +8,7 @@ export default class ProfPosts extends Component {
     console.log("THESE R PROPS," ,posts);
     let results = posts.map ((post) => {
       return (
-        <div className="row" key= {post.id}>
+        <div className="row" key={post.id}>
               <div className="col-xs-2">
                 <h5>{post.author}</h5>
                 <img src={post.authorImg} className="img-responsive" alt="user"/>

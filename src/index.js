@@ -17,7 +17,7 @@ const Root = () => {
       <Route path="/" component={Main}/>
     </HashRouter>
     <HashRouter history={browserHistory}>
-      <Route path="/AllCities" component={AllCities}/>
+      <Route path="/cities" component={AllCities}/>
     </HashRouter>
     <HashRouter history={browserHistory}>
       <Route path="/profile" component={Profile} onEnter={requireAuth} />
