@@ -23,15 +23,15 @@ export default class Profile extends Component {
       // this.handleEditProfileSubmit = this.handleEditProfileSubmit.bind(this);
     };
 
-  GetPosts(name) {
-    getUserPosts(name).then(data => {
-      console.log('posts from db', data);
-      this.setState({
-        posts: data,
-        clicked: !this.state.clicked
-      })
-      console.log("we are going to edit", name, this.state.edit);
-    })
+  // GetPosts(name) {
+  //   getUserPosts(name).then(data => {
+  //     console.log('posts from db', data);
+  //     this.setState({
+  //       posts: data,
+  //       clicked: !this.state.clicked
+  //     })
+  //     console.log("we are going to edit", name, this.state.edit);
+  //   })
 
     // handleEditChange(e){
     //   console.log("refs to change", this.refs.aboutMe.value)
@@ -54,7 +54,7 @@ export default class Profile extends Component {
     //     // user: getProfile()
     //   })
     // }
-  }
+  // }
 
   handleUserEdit(name) {
     this.setState({
